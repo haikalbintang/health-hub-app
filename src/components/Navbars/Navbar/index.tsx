@@ -3,12 +3,12 @@ import svg1 from "../../images/svg/whole-foods-1.svg";
 import Link from "next/link";
 
 type SetToggleMenuType = (
-  value: boolean | ((prev: boolean) => boolean)
+  value: boolean | ((prev: boolean) => boolean),
 ) => void;
 
 interface Props {
-  setShowLoginModal: SetToggleMenuType;
-  setShowNavbarHamburgerMenu: SetToggleMenuType;
+  setShowLoginModal?: SetToggleMenuType;
+  setShowNavbarHamburgerMenu?: SetToggleMenuType;
 }
 
 const Navbar = ({ setShowLoginModal, setShowNavbarHamburgerMenu }: Props) => {
@@ -109,13 +109,11 @@ const Navbar = ({ setShowLoginModal, setShowNavbarHamburgerMenu }: Props) => {
             <li>
               <a href="#">About us</a>
             </li>
-            <li>
-              <a href="">
-                {" "}
-                <picture>
-                  <img src={svg1.src} alt="" />
-                </picture>
-              </a>
+            <li className="border-orange-200 border-4 p-2 pt-0 mt-2 rounded-xl">
+              <h1 className="text-emerald-700 text-2xl">Health</h1>
+              <h2 className="text-white bg-gray-950 mx-auto rounded-xl text-center text-2xl font-bold px-2 pt-0 pb-1">
+                HUB
+              </h2>
             </li>
             <li>
               <a href="#">Products</a>

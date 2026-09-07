@@ -1,8 +1,8 @@
 import { chefMainCard } from "@/data";
 
-import facebooksvg from "../../components/images/svg/317727_facebook_social media_social_icon.svg";
-import tiktoksvg from "../../components/images/svg/tiktok-logo-logo-svgrepo-com.svg";
-import instagramsvg from "../../components/images/svg/instagram2.svg";
+import facebooksvg from "../images/svg/317727_facebook_social media_social_icon.svg";
+import tiktoksvg from "../images/svg/tiktok-logo-logo-svgrepo-com.svg";
+import instagramsvg from "../images/svg/instagram2.svg";
 import { Button } from "../ui/button";
 import useFetchProfile from "@/hooks/useFetchProfile";
 

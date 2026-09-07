@@ -1,7 +1,7 @@
 import { recipeDetailCards } from "@/data";
 import { Button } from "../ui/button";
-import heartsvg from "../../components/images/svg/heart.svg";
-import sharesvg from "../../components/images/svg/share.svg";
+import heartsvg from "../images/svg/heart.svg";
+import sharesvg from "../images/svg/share.svg";
 import useFetchRecipe from "@/hooks/UseFetchRecipe";
 import useFetchProfile from "@/hooks/useFetchProfile";
 import { useEffect, useState } from "react";

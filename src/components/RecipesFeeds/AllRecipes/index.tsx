@@ -4,9 +4,9 @@ import { chefMainCard2 } from "@/data";
 import useFetchRecipe from "@/hooks/UseFetchRecipe";
 import ModalRecipe from "@/components/Modals/ModalRecipe";
 import useUploadComponent from "@/hooks/useUploadComponent";
-import ComplexityLogo from "../../../components/images/svg/levels-svgrepo-com.svg";
-import NutriLogo from "../../../components/images/svg/cardlogo/scoreboard-svgrepo-com.svg";
-import ServingLoo from "../../../components/images/svg/cardlogo/cover-dish-svgrepo-com.svg";
+import ComplexityLogo from "../../images/svg/levels-svgrepo-com.svg";
+import NutriLogo from "../../images/svg/cardlogo/scoreboard-svgrepo-com.svg";
+import ServingLoo from "../../images/svg/cardlogo/cover-dish-svgrepo-com.svg";
 import Link from "next/link";
 interface Props {
   recipeCategoryName: string;

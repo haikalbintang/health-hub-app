@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from "react";
-import logo1 from "../../components/images/cookingtools/spatula-svgrepo-com.svg";
+import logo1 from "../images/cookingtools/spatula-svgrepo-com.svg";
 
 import { Button } from "../ui/button";
 
@@ -12,15 +12,15 @@ import SideDishes_vmhb from "./SideDishes_vmhb";
 import WeeklyRecipes_vmhb from "./WeeklyRecipes_vmhb";
 import HealthyRecipes_vmhb from "./HealthyRecipes_vmhb";
 
-import HomeLogo from "../../components/images/sidebarlogo/home-svgrepo-com.svg";
-import MyRecipeLogo from "../../components/images/sidebarlogo/notes-svgrepo-com.svg";
-import FollowedRecipesLogo from "../../components/images/sidebarlogo/follower-svgrepo-com.svg";
-import MyFavoriteRecipesLogo from "../../components/images/sidebarlogo/love-letter-note-svgrepo-com.svg";
-import NutritionsLogo from "../../components/images/sidebarlogo/nutrition-svgrepo-com.svg";
-import CategoriesLogo from "../../components/images/sidebarlogo/category-svgrepo-com.svg";
-import OriginsLogo from "../../components/images/sidebarlogo/country-direction-location-map-navigation-pin-svgrepo-com.svg";
+import HomeLogo from "../images/sidebarlogo/home-svgrepo-com.svg";
+import MyRecipeLogo from "../images/sidebarlogo/notes-svgrepo-com.svg";
+import FollowedRecipesLogo from "../images/sidebarlogo/follower-svgrepo-com.svg";
+import MyFavoriteRecipesLogo from "../images/sidebarlogo/love-letter-note-svgrepo-com.svg";
+import NutritionsLogo from "../images/sidebarlogo/nutrition-svgrepo-com.svg";
+import CategoriesLogo from "../images/sidebarlogo/category-svgrepo-com.svg";
+import OriginsLogo from "../images/sidebarlogo/country-direction-location-map-navigation-pin-svgrepo-com.svg";
 
-import Magnifier from "../../components/images/svg/icons8-magnifier.svg";
+import Magnifier from "../images/svg/icons8-magnifier.svg";
 import WeeklyRecipes from "../RecipesFeeds/WeeklyRecipes";
 import AllRecipes from "../RecipesFeeds/AllRecipes";
 

@@ -10,15 +10,16 @@ import SliderImagev2 from "@/components/SliderImageS/SliderImagev2";
 import HeroPage from "@/components/For_HeroSection/HeroPage";
 import { chefMainCard } from "@/data";
 import { recipeDetailCards } from "@/data";
-import Food1 from "../../components/images/sliderImagesv2/food1.jpg";
-import Food2 from "../../components/images/sliderImagesv2/food2.jpg";
-import Food3 from "../../components/images/sliderImagesv2/food3.jpg";
-import Food4 from "../../components/images/sliderImagesv2/food4.jpg";
+import Food1 from "@/components/images/sliderImagesv2/food1.jpg";
+import Food2 from "@/components/images/sliderImagesv2/food2.jpg";
+import Food3 from "@/components/images/sliderImagesv2/food3.jpg";
+import Food4 from "@/components/images/sliderImagesv2/food4.jpg";
 
-import facebooksvg from "../../components/images/svg/317727_facebook_social media_social_icon.svg";
-import tiktoksvg from "../../components/images/svg/tiktok-logo-logo-svgrepo-com.svg";
-import knife from "../../components/images/cookingtools/cleaver-butcher-svgrepo-com.svg";
+import facebooksvg from "@/components/images/svg/317727_facebook_social media_social_icon.svg";
+import tiktoksvg from "@/components/images/svg/tiktok-logo-logo-svgrepo-com.svg";
+import knife from "@/components/images/cookingtools/cleaver-butcher-svgrepo-com.svg";
 import { Button } from "@/components/ui/button";
+import SliderImagev2_2_4 from "@/components/SliderImageS/SliderImage_vmhb/SliderImagev2_2_4";
 
 export default function Recipees() {
   const truncate = (str: string) => {
@@ -31,12 +32,11 @@ export default function Recipees() {
   const images: string[] = [Food1.src, Food2.src, Food3.src, Food4.src];
   return (
     <div className=" justify-center items-center">
-      <Navbar />
       <RecipeHeroPage images={images} />
       <div className="lg:flex justify-around items-center pt-5 px-20">
         <div className="lg:flex justify-center items-center gap-10">
-          {recipeDetailCards.map((card: any) => (
-            <div className="flex justify-center items-center gap-4">
+          {recipeDetailCards.map((card: any, index) => (
+            <div key={index} className="flex justify-center items-center gap-4">
               <div className="flex  gap-5">
                 <div>
                   <Button className="bg-amber-700">
@@ -67,8 +67,8 @@ export default function Recipees() {
           </div>
         </div>
         <div className="justify-center items-center ">
-          {chefMainCard.map((card: any) => (
-            <div className="flex justify-start items-center gap-2">
+          {chefMainCard.map((card: any, index) => (
+            <div key={index} className="flex justify-start items-center gap-2">
               <img
                 src={card.chefImage}
                 alt=""
@@ -78,8 +78,11 @@ export default function Recipees() {
                 <h1 className="text-xl font-bold text-amber-700">
                   {card.name}
                 </h1>
-                {chefMainCard[0].socialMedia.map((social: any) => (
-                  <div className="flex justify-start items-center gap-2">
+                {chefMainCard[0].socialMedia.map((social: any, index) => (
+                  <div
+                    key={index}
+                    className="flex justify-start items-center gap-2"
+                  >
                     <Button>+ Follow</Button>
                     <a href={social.facebook}>
                       <img
@@ -102,8 +105,11 @@ export default function Recipees() {
           ))}
         </div>
       </div>
-      {recipeDetailCards.map((card: any) => (
-        <div className="flex flex-col justify-center items-center lg:p-12">
+      {recipeDetailCards.map((card: any, index) => (
+        <div
+          key={index}
+          className="flex flex-col justify-center items-center lg:p-12"
+        >
           <h1 className="text-xl font-bold">Recipe Summary :</h1>
           <h1 className="flex justify-center items-center px-36">
             {card.summary}
@@ -119,8 +125,8 @@ export default function Recipees() {
         </div>
       </div>
       <div className="lg:flex pt-10 lg:px-20  justify-center items-center gap-3">
-        {recipeDetailCards[0].tags.map((tag: any) => (
-          <div>
+        {recipeDetailCards[0].tags.map((tag: any, index) => (
+          <div key={index}>
             <h1 className="bg-slate-200 p-5 gap-2 rounded-xl w-full shadow-lg shadow-slate-500 ">
               {tag}
             </h1>
@@ -132,12 +138,8 @@ export default function Recipees() {
         <div className="lg:w-1/3 ">
           <CommentSections />
         </div>
-        <div className="lg:w-2/3  lg:flex-col justify-start items-start pt-5 pr-10">
-          <SliderImagev2
-            foodImages={images}
-            title="Recipe Galery:"
-            className="h-1/3"
-          />
+        <div className="xl:w-2/3 2xl:px-20">
+          <SliderImagev2_2_4 className="hidden xl:block" />
         </div>
       </div>
     </div>

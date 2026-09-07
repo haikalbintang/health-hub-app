@@ -125,7 +125,7 @@ const ChefProfile: React.FC<Props> = () => {
 
   const displayCards = chefMainCard[0].chefCards.slice(
     startIndex,
-    startIndex + 3
+    startIndex + 3,
   );
   const handleNext = () => {
     if (startIndex < foodCards.length - 3) {
@@ -140,10 +140,10 @@ const ChefProfile: React.FC<Props> = () => {
   };
 
   return (
-    <div className="flex justify-center items-center lg:py-5">
+    <div className="hover:scale-110 flex justify-center items-center lg:py-5">
       <div className="flex flex-col justify-center items-center relative w-full h-full">
         {chefMainCard.map((chefCard, index) => (
-          <div>
+          <div key={index}>
             <div className="w-full h-full">
               <img
                 src={chefMainCard[0].chefImage}

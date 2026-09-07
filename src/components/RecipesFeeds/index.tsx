@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from "react";
-import logo1 from "../../components/images/cookingtools/spatula-svgrepo-com.svg";
+import logo1 from "../images/cookingtools/spatula-svgrepo-com.svg";
 import SliderImage from "../SliderImageS/SliderImage";
 import Card from "../Cards/Card";
 
@@ -14,21 +14,21 @@ import SideDishes from "./SideDishes";
 import WeeklyRecipes from "./WeeklyRecipes";
 import AllRecipes from "./AllRecipes";
 import { Button } from "../ui/button";
-import Food1 from "../../components/images/sliderImagesv2/food1.jpg";
-import Food2 from "../../components/images/sliderImagesv2/food2.jpg";
-import Food3 from "../../components/images/sliderImagesv2/food3.jpg";
-import Food4 from "../../components/images/sliderImagesv2/food4.jpg";
-import Magnifier from "../../components/images/svg/icons8-magnifier.svg";
+import Food1 from "../images/sliderImagesv2/food1.jpg";
+import Food2 from "../images/sliderImagesv2/food2.jpg";
+import Food3 from "../images/sliderImagesv2/food3.jpg";
+import Food4 from "../images/sliderImagesv2/food4.jpg";
+import Magnifier from "../images/svg/icons8-magnifier.svg";
 import NavbarWrapper from "../Navbars/NavbarWrapper";
 import DiscoverContent from "../DiscoverContent";
 
-import HomeLogo from "../../components/images/sidebarlogo/home-svgrepo-com.svg";
-import MyRecipeLogo from "../../components/images/sidebarlogo/notes-svgrepo-com.svg";
-import FollowedRecipesLogo from "../../components/images/sidebarlogo/follower-svgrepo-com.svg";
-import MyFavoriteRecipesLogo from "../../components/images/sidebarlogo/love-letter-note-svgrepo-com.svg";
-import NutritionsLogo from "../../components/images/sidebarlogo/nutrition-svgrepo-com.svg";
-import CategoriesLogo from "../../components/images/sidebarlogo/category-svgrepo-com.svg";
-import OriginsLogo from "../../components/images/sidebarlogo/country-direction-location-map-navigation-pin-svgrepo-com.svg";
+import HomeLogo from "../images/sidebarlogo/home-svgrepo-com.svg";
+import MyRecipeLogo from "../images/sidebarlogo/notes-svgrepo-com.svg";
+import FollowedRecipesLogo from "../images/sidebarlogo/follower-svgrepo-com.svg";
+import MyFavoriteRecipesLogo from "../images/sidebarlogo/love-letter-note-svgrepo-com.svg";
+import NutritionsLogo from "../images/sidebarlogo/nutrition-svgrepo-com.svg";
+import CategoriesLogo from "../images/sidebarlogo/category-svgrepo-com.svg";
+import OriginsLogo from "../images/sidebarlogo/country-direction-location-map-navigation-pin-svgrepo-com.svg";
 
 const RecipeFeeds = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);

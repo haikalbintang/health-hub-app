@@ -16,7 +16,7 @@ const Instructions = ({ recipeData }: any) => {
         <div className="flex items-start gap-2 lg:mt-2">
           <Button className="rounded-full  flex items-start bg-orange-900"></Button>
           <h2 className="sm:pl-2 text-slate-800 lg:leading-normal sm:tracking-normal leading-snug tracking-tight text-base font-medium border-b-2 sm:pb-1 border-slate-200 mb-3">
-            {recipeData.Instruction}
+            {recipeData?.Instruction}
           </h2>
         </div>
       </div>

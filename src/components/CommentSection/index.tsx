@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { chefMainCard } from "@/components/Profiles/ChefProfile";
-import photo1 from "../../components/images/chefimage/gordonram.jpeg";
-import photo2 from "../../components/images/chefimage/jemieolif.jpg";
+import photo1 from "../images/chefimage/gordonram.jpeg";
+import photo2 from "../images/chefimage/jemieolif.jpg";
 
 const CommentsCard = [
   {
