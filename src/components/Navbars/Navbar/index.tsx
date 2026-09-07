@@ -100,28 +100,33 @@ const Navbar = ({ setShowLoginModal, setShowNavbarHamburgerMenu }: Props) => {
         </div>
       </div>
       {/* Main Navbar */}
-      <div className="relative z-10 justify-center flex items-center ">
+      <div className="relative z-10 justify-center flex items-center mb-3">
         <div className="hidden sm:flex sm:justify-center sm:items-center font-sans font-medium text-lg">
           <ul className="flex gap-10 md:gap-16 lg:gap-28 xl:gap-32 2xl:gap-40 justify-center items-center">
             <li>
-              <a href="#">Recipe</a>
+              <Link href="/feeds">Recipes</Link>
             </li>
             <li>
-              <a href="#">About us</a>
+              <Link href="/products">Products</Link>
             </li>
             <li className="border-orange-200 border-4 p-2 pt-0 mt-2 rounded-xl">
-              <h1 className="text-emerald-700 text-2xl">Health</h1>
-              <h2 className="text-white bg-gray-950 mx-auto rounded-xl text-center text-2xl font-bold px-2 pt-0 pb-1">
-                HUB
-              </h2>
-            </li>
-            <li>
-              <a href="#">Products</a>
-            </li>
-            <li>
-              <Link href="" onClick={toggleLoginModal}>
-                Sign In
+              <Link href="/">
+                <h1 className="text-emerald-700 text-2xl">Health</h1>
+                <h2 className="text-white bg-gray-950 mx-auto rounded-xl text-center text-2xl font-bold px-2 pt-0 pb-1">
+                  HUB
+                </h2>
               </Link>
+            </li>
+            <li>
+              <Link href="/about-us">About Us</Link>
+            </li>
+            <li>
+              <button
+                className="cursor-pointer bg-gray-800 text-white px-4 py-1 rounded-xl hover:bg-gray-900"
+                onClick={toggleLoginModal}
+              >
+                Sign In
+              </button>
             </li>
           </ul>
         </div>
