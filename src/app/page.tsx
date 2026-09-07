@@ -3,9 +3,6 @@ import DiscoverContent from "@/components/DiscoverContent";
 import SliderImage3 from "@/components/SliderImage3";
 import Hero from "@/components/Hero";
 
-import image1 from "@/components/images/1.jpg";
-import image2 from "@/components/images/2.png";
-
 import food1 from "@/components/images/food1.jpg";
 import food2 from "@/components/images/food2.jpg";
 import food3 from "@/components/images/food3.jpg";
@@ -20,7 +17,6 @@ import foodImage6 from "@/components/slidersv3/6.png";
 import SliderImage2 from "@/components/SliderImage2";
 
 export default function Home() {
-  const images: string[] = [image1.src, image2.src];
   const foodImages: string[] = [food1.src, food2.src, food3.src, food4.src];
   const foodImagesv2: string[] = [
     foodImage2.src,
@@ -33,7 +29,8 @@ export default function Home() {
 
   return (
     <main>
-      <SliderImage images={images} maxHeight="500" />
+      <SliderImage />
+
       <DiscoverContent />
       <SliderImage2 />
       <SliderImage3 images={foodImagesv2} />

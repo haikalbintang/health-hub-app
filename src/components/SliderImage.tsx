@@ -1,19 +1,15 @@
 "use client";
-import React, { useEffect } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
+import image1 from "@/components/images/1.jpg";
+import image2 from "@/components/images/2.png";
+import Image from "next/image";
 
-interface ImageSliderProps {
-  images: string[];
-  maxHeight?: string;
-  className?: string;
-}
+const images = [image1.src, image2.src];
+const MAX_HEIGHT = 500;
 
-const SliderImage: React.FC<ImageSliderProps> = ({
-  images,
-  maxHeight,
-  className,
-}) => {
-  const [currentIndex, setCurrentIndex] = React.useState<number>(0);
+function SliderImage() {
+  const [currentIndex, setCurrentIndex] = useState(0);
 
   const goToPrevious = () => {
     setCurrentIndex((prevIndex) =>
@@ -33,14 +29,16 @@ const SliderImage: React.FC<ImageSliderProps> = ({
   }, [currentIndex]);
 
   return (
-    <div className="px-3">
+    <div className="px-3 py-1">
       <div className="relative overflow-hidden rounded-lg">
-        <img
+        <Image
           src={images[currentIndex]}
+          height={500}
+          width={1000}
           alt="Slider"
           className="w-full h-full object-cover rounded-3xl"
           style={{
-            maxHeight: `${maxHeight}px`,
+            maxHeight: `${MAX_HEIGHT}px`,
             maxWidth: "150vh",
             display: "block",
             margin: "0 auto",
@@ -58,21 +56,21 @@ const SliderImage: React.FC<ImageSliderProps> = ({
               </h2>
             </div>
           </div>
-          {/* <button
+          <button
             onClick={goToPrevious}
-            className="absolute top-1/2 left-0 2xl:left-40 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-l focus:outline-none z-10"
+            className="absolute top-1/2 left-0 2xl:left-28 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-l focus:outline-none z-10"
           >
             &lt;
           </button>
           <button
             onClick={goToNext}
-            className="absolute top-1/2 right-0 2xl:right-40 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-r focus:outline-none z-10"
+            className="absolute top-1/2 right-0 2xl:right-28 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-r focus:outline-none z-10"
           >
             &gt;
-          </button> */}
+          </button>
           <div className="flex justify-center">
             <Button
-              className={`${className} h-12 px-8 text-lg font-semibold bg-red-500 text-white rounded-full z-10`}
+              className={`h-12 px-8 text-lg font-semibold bg-red-500 text-white rounded-full z-10`}
             >
               Discover Now !
             </Button>
@@ -81,6 +79,6 @@ const SliderImage: React.FC<ImageSliderProps> = ({
       </div>
     </div>
   );
-};
+}
 
 export default SliderImage;

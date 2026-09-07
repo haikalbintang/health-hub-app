@@ -122,7 +122,7 @@ const Navbar = ({ setShowLoginModal, setShowNavbarHamburgerMenu }: Props) => {
             </li>
             <li>
               <button
-                className="cursor-pointer bg-gray-800 text-white px-4 py-1 rounded-xl hover:bg-gray-900"
+                className="cursor-pointer bg-gray-800 text-white px-4 pt-1 pb-2 rounded-xl hover:bg-gray-900"
                 // onClick={toggleLoginModal}
               >
                 Sign In

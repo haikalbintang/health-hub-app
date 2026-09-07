@@ -1,6 +1,6 @@
 export default function Footer() {
   return (
-    <>
+    <footer>
       <div className="px-6 py-10 bg-orange-200 text-slate-800 rounded-t-xl">
         <div className="flex justify-between items-center">
           <h2 className="font-bold">FOLLOW US</h2>
@@ -59,6 +59,6 @@ export default function Footer() {
           </div>
         </div>
       </div>
-    </>
+    </footer>
   );
 }

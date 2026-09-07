@@ -13,8 +13,8 @@ export default function NavbarWrapper() {
   const [showRegisterModal, setShowRegisterModal] = useState<boolean>(false);
 
   return (
-    <>
-      <div className="">
+    <header>
+      <nav className="">
         <Navbar
           setShowLoginModal={setShowLoginModal}
           setShowNavbarHamburgerMenu={setShowNavbarHamburgerMenu}
@@ -34,7 +34,7 @@ export default function NavbarWrapper() {
         {showRegisterModal && (
           <RegisterModal setShowRegisterModal={setShowRegisterModal} />
         )}
-      </div>
-    </>
+      </nav>
+    </header>
   );
 }
