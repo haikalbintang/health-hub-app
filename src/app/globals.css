@@ -1,0 +1,95 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .border-gradient {
+    border-width: 8px;
+    border-style: solid;
+    border-image: linear-gradient(to right, #169092, #d4dc02) 1;
+  }
+  .border-gradient-wrapper {
+    border-radius: 1rem;
+  }
+  .moving-image {
+    position: absolute;
+    top: 0;
+    right: -5rem;
+    transform: translate(-50%, -50%);
+    animation: none;
+  }
+  .relative:hover .moving-image {
+    animation: rotateImage 2s linear infinite;
+  }
+  .bgs-gradients {
+    background: linear-gradient(to right, #00b9ff, #2558a2);
+  }
+
+  .recipe-gradients {
+    background: linear-gradient(to right, #ff8800, #a24425);
+  }
+
+  .text-gradients {
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    background-image: linear-gradient(to right, #f6c704, #edeb00);
+  }
+
+  @keyframes rotateImage {
+    from {
+      transform: translate(-50%, -50%) rotate(-5deg);
+    }
+    to {
+      transform: translate(-50%, -50%) rotate(5deg);
+    }
+  }
+}
+
+.merriweather-light {
+  font-family: "Merriweather", serif;
+  font-weight: 300;
+  font-style: normal;
+}
+
+.merriweather-regular {
+  font-family: "Merriweather", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.merriweather-bold {
+  font-family: "Merriweather", serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.merriweather-black {
+  font-family: "Merriweather", serif;
+  font-weight: 900;
+  font-style: normal;
+}
+
+.merriweather-light-italic {
+  font-family: "Merriweather", serif;
+  font-weight: 300;
+  font-style: italic;
+}
+
+.merriweather-regular-italic {
+  font-family: "Merriweather", serif;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.merriweather-bold-italic {
+  font-family: "Merriweather", serif;
+  font-weight: 700;
+  font-style: italic;
+}
+
+.merriweather-black-italic {
+  font-family: "Merriweather", serif;
+  font-weight: 900;
+  font-style: italic;
+}
