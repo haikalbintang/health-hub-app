@@ -1,19 +1,25 @@
 "use client";
+
+import { Button } from "@/components/ui/button";
+import { useAuthStore } from "@/store/useAuthStore";
+import Link from "next/link";
 import React, { useState } from "react";
-import ProfileSidebar from "@/components/ProfileSidebar";
+// import ProfileSidebar from "@/components/ProfileSidebar";
 
-const MyProfile: React.FC = () => {
-  const [isOpen, setIsOpen] = useState<boolean>(false);
-
-  const toggleSidebar = () => {
-    setIsOpen(!isOpen);
-  };
+const MyProfilePage: React.FC = () => {
+  const isLoggedIn = useAuthStore((state) => state.isLoggedIn);
+  const logout = useAuthStore((state) => state.logout);
 
   return (
     <div>
-      <ProfileSidebar />
+      {isLoggedIn && (
+        <Link href={"/"}>
+          <Button onClick={logout}>Logout</Button>
+        </Link>
+      )}
+      {/* <ProfileSidebar /> */}
     </div>
   );
 };
 
-export default MyProfile;
+export default MyProfilePage;

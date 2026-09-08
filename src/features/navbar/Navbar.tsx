@@ -1,9 +1,10 @@
 import Link from "next/link";
-import React from "react";
 
 const Navbar = ({
+  isLoggedIn,
   setIsLoginModalShown,
 }: {
+  isLoggedIn: boolean;
   setIsLoginModalShown: (toggle: boolean) => void;
 }) => {
   return (
@@ -26,14 +27,20 @@ const Navbar = ({
         <li>
           <Link href="/about-us">About Us</Link>
         </li>
-        <li>
-          <button
-            className="cursor-pointer bg-gray-800 text-white px-4 pt-1 pb-2 rounded-xl hover:bg-gray-900"
-            onClick={() => setIsLoginModalShown(true)}
-          >
-            Sign In
-          </button>
-        </li>
+        {isLoggedIn ? (
+          <li>
+            <Link href="/profile">Profile</Link>
+          </li>
+        ) : (
+          <li>
+            <button
+              className="cursor-pointer bg-gray-800 text-white px-4 pt-1 pb-2 rounded-xl hover:bg-gray-900"
+              onClick={() => setIsLoginModalShown(true)}
+            >
+              Sign In
+            </button>
+          </li>
+        )}
       </ul>
     </nav>
   );

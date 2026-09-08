@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 // import svg1 from "../../images/svg/whole-foods-1.svg";
 import Link from "next/link";
 import Envelope from "@/components/Envelope";
@@ -10,10 +10,17 @@ import Facebook from "@/components/Facebook";
 import LoginModal from "@/features/navbar/LoginModal";
 import RegisterModal from "@/features/navbar/ModalRegister";
 import Navbar from "./Navbar";
+import { useAuthStore } from "@/store/useAuthStore";
 
 export default function Header() {
   const [isLoginModalShown, setIsLoginModalShown] = useState(false);
   const [isRegisterModalShown, setIsRegisterModalShown] = useState(false);
+  const isLoggedIn = useAuthStore((state) => state.isLoggedIn);
+
+  const [hydrated, setHydrated] = useState(false);
+  useEffect(() => {
+    setHydrated(true);
+  }, []);
 
   return (
     <>
@@ -54,7 +61,10 @@ export default function Header() {
         </div>
 
         {/* Main Navbar */}
-        <Navbar setIsLoginModalShown={setIsLoginModalShown} />
+        <Navbar
+          isLoggedIn={hydrated ? isLoggedIn : false}
+          setIsLoginModalShown={setIsLoginModalShown}
+        />
       </header>
 
       {isLoginModalShown && (
