@@ -1,7 +1,7 @@
-import SliderImage from "@/components/SliderImage";
-import DiscoverContent from "@/components/DiscoverContent";
-import SliderImage3 from "@/components/SliderImage3";
-import Hero from "@/components/Hero";
+import SliderImage from "@/features/landing-page/SliderImage";
+import DiscoverContent from "@/features/landing-page/DiscoverContent";
+import SliderImage3 from "@/features/landing-page/SliderImage3";
+import Hero from "@/features/landing-page/Hero";
 
 import food1 from "@/components/images/food1.jpg";
 import food2 from "@/components/images/food2.jpg";
@@ -14,7 +14,7 @@ import foodImage3 from "@/components/slidersv3/3.png";
 import foodImage4 from "@/components/slidersv3/4.png";
 import foodImage5 from "@/components/slidersv3/5.png";
 import foodImage6 from "@/components/slidersv3/6.png";
-import SliderImage2 from "@/components/SliderImage2";
+import SliderImage2 from "@/features/landing-page/SliderImage2";
 
 export default function Home() {
   const foodImages: string[] = [food1.src, food2.src, food3.src, food4.src];

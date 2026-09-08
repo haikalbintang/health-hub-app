@@ -18,7 +18,7 @@ export default function Modal({ setShowModal, children }: Props) {
           onClick={() => setShowModal(false)}
         ></div>
 
-        <div className="fixed flex top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white rounded-xl z-50">
+        <div className="fixed flex top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-orange-50 rounded-xl z-50">
           {children}
           {/* Close button */}
           <div className="absolute top-1 right-1">

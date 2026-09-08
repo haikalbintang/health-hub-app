@@ -5,7 +5,7 @@ import { z } from "zod";
 import { Button } from "@/components/ui/button";
 import { Form } from "@/components/ui/form";
 
-import Modal from "../Modal";
+import Modal from "@/features/navbar/Modal";
 import useMultistepForm from "@/hooks/useMultistepForm";
 import RegisterModalS1 from "./RegisterModalS1";
 import RegisterModalS2 from "./RegisterModalS2";
@@ -30,18 +30,18 @@ const formSchema = z
     {
       message: "Passwords do not match",
       path: ["passwordConfirm"],
-    }
+    },
   );
 
 type SetToggleMenuType = (
-  value: boolean | ((prev: boolean) => boolean)
+  value: boolean | ((prev: boolean) => boolean),
 ) => void;
 
 interface Props {
   setShowRegisterModal: SetToggleMenuType;
 }
 
-export default function ModalRegister({ setShowRegisterModal }: Props) {
+export default function RegisterModal({ setShowRegisterModal }: Props) {
   // 1. Define your form.
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),

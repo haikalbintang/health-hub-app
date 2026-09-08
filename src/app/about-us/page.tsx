@@ -1,8 +1,8 @@
 import Image from "next/image";
-import masIman from "@/components/images/profilePicture/Iman.jpg";
-import masSatya from "@/components/images/profilePicture/Satya.jpg";
-import masRezi from "@/components/images/profilePicture/Rezi.jpg";
-import masHaikal from "@/components/images/profilePicture/Haikal.jpeg";
+import masIman from "@/components/images/Iman.jpg";
+import masSatya from "@/components/images/Satya.jpg";
+import masRezi from "@/components/images/Rezi.jpg";
+import masHaikal from "@/components/images/Haikal.jpeg";
 
 const page = () => {
   return (

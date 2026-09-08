@@ -9,7 +9,7 @@ const Hero = () => {
     <div className="py-20">
       <div className="container mx-auto flex justify-center items-center">
         <div className="flex flex-col justify-center items-center w-full md:w-1/2 px-4">
-          <div className="text-center mb-8">
+          <div className="text-center mb-3">
             {" "}
             {/* Centered and added margin bottom */}
             <h1 className="text-3xl md:text-4xl lg:text-4xl font-bold text-gray-800">
