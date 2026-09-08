@@ -1,8 +1,5 @@
+import { SetToggleMenuType } from "@/types/type";
 import { ReactNode } from "react";
-
-type SetToggleMenuType = (
-  value: boolean | ((prev: boolean) => boolean),
-) => void;
 
 interface Props {
   setShowModal: SetToggleMenuType;

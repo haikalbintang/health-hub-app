@@ -9,13 +9,17 @@ import Image from "next/image";
 import Close from "@/components/Close";
 import { SIGN_IN_OPTIONS } from "@/data/data";
 import Link from "next/link";
+import { SetToggleMenuType } from "@/types/type";
 
 const API_BASE_URL = "http://127.0.0.1:5000";
 
 export default function ModalLogin({
   setShowLoginModal,
   setShowRegisterModal,
-}: any) {
+}: {
+  setShowLoginModal: SetToggleMenuType;
+  setShowRegisterModal: SetToggleMenuType;
+}) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [rememberMe, setRememberMe] = useState(false);
