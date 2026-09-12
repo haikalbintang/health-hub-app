@@ -32,8 +32,11 @@ export default function Home() {
       <SliderImage />
 
       <DiscoverContent />
+
       <SliderImage2 />
+
       <SliderImage3 images={foodImagesv2} />
+
       <Hero />
     </main>
   );

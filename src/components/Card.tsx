@@ -1,97 +1,141 @@
-// import chefsvg from "../images/svg/3.png";
-// import clocksvg from "../../images/svg/clock-lines-svgrepo-com.svg";
+"use client";
 
-// import gif1 from "../../images/svg/gif/tapas2go-thumbs-up.gif";
-// import gif2 from "../images/svg/gif/community.gif";
-// import cookgreensvg from "../images/svg/cook-svgrepo-com (green).svg";
-// import cookyellowsvg from "../images/svg/cook-svgrepo-com (yellow).svg";
-// import cookredsvg from "../images/svg/cook-svgrepo-com (red).svg";
+import { useState } from "react";
+import Image from "next/image";
+import clocksvg from "@/components/images/clock-lines-svgrepo-com.svg";
 
-interface Props {
+interface RecipeType {
+  id: number;
   title: string;
   complexity: string;
   time: string;
   foodImage: string;
-  role?: string;
-  className?: string;
-  maxHeight?: string;
+  role: string;
+  nutriScore: number;
+  description: string;
 }
 
+const nutriScoreStyles: Record<number, { letter: string; color: string }> = {
+  10: { letter: "A", color: "bg-emerald-600" },
+  9: { letter: "B", color: "bg-lime-500" },
+  8: { letter: "C", color: "bg-amber-500" },
+  7: { letter: "D", color: "bg-orange-500" },
+  6: { letter: "E", color: "bg-rose-600" },
+};
+
+const complexityStyles: Record<string, string> = {
+  Easy: "bg-emerald-500",
+  Medium: "bg-amber-500",
+  Hard: "bg-rose-500",
+};
+
 export default function Card({
-  title,
-  complexity,
-  time,
-  foodImage,
-  role,
-  maxHeight,
-}: Props) {
+  data,
+  onSeeRecipe,
+}: {
+  data: RecipeType;
+  onSeeRecipe: (id: number) => void;
+}) {
+  const {
+    id,
+    title,
+    complexity,
+    time,
+    foodImage,
+    role,
+    nutriScore,
+    description,
+  } = data;
+  const badgeColor = complexityStyles[complexity] ?? "bg-gray-500";
+  const nutri = nutriScoreStyles[Math.floor(nutriScore)] ?? {
+    letter: "?",
+    color: "bg-gray-500",
+  };
+
+  const [isLeaving, setIsLeaving] = useState(false);
+
+  const handleSeeRecipe = () => {
+    setIsLeaving(true);
+    window.setTimeout(() => onSeeRecipe(id), 350); // match the exit duration below
+  };
+
   return (
-    <div className="flex flex-wrap relative text-center sm:hover:transform sm:hover:scale-110 sm:duration-300 rounded-xl">
-      <picture>
-        <img
-          src={foodImage}
-          alt="Food image."
-          className="block my-0 mx-auto h-auto rounded-xl"
-          style={{ maxHeight }}
-        />
-      </picture>
-      <h1
-        className="absolute bottom-1/4 left-2/4 -translate-x-2/4 -translate-y-2/4 text-xl font-bold text-white z-10 m-0 p-0 w-full"
-        style={{ bottom: "17%", left: "50%" }}
-      >
-        {title}
-      </h1>
-      <div
-        className="flex gap-2 absolute bottom-0 left-8 -translate-x-2/4 -translate-y-2/4 text-white z-10 m-0 p-0 w-1/5"
-        style={{ bottom: "2%", left: "20%" }}
-      >
+    <li
+      key={id}
+      className={`group/card relative w-52 h-80 overflow-hidden rounded-xl text-center transition-all duration-[350ms] ease-in ${
+        isLeaving ? "-translate-y-8 scale-95 opacity-0" : "sm:hover:scale-105"
+      }`}
+    >
+      {/* Button strip — sits underneath, revealed as the image shrinks */}
+      <div className="absolute flex-col inset-x-0 bottom-0 flex h-32 items-center justify-center rounded-b-xl bg-gradient-to-t from-gray-900 to-black">
+        <p className="text-white text-xs mb-3">{description}</p>
         <button
-          className={`${
-            complexity === "Easy"
-              ? "bg-green-500"
-              : complexity === "Medium"
-                ? "bg-yellow-500"
-                : "bg-red-500"
-          } text-white text-xs sm:text-sm py-1 px-2 rounded-xl`}
+          onClick={handleSeeRecipe}
+          className="rounded-full bg-white px-5 py-2 text-sm font-semibold text-slate-900 transition-transform duration-200 hover:scale-105 active:scale-95"
         >
-          {complexity}
+          See Recipe
         </button>
       </div>
-      <div
-        className="flex gap-2 absolute -translate-x-2/4 -translate-y-2/4 text-white z-10 m-0 p-0 w-1/5"
-        style={{ bottom: "2%", right: "13%" }}
-      >
-        <picture>
-          {/* <img
-            src={clocksvg.src}
-            alt="Clock icon."
-            className="hidden w-2 h-2 sm:w-8 sm:h-8"
-          /> */}
-        </picture>
-        <button className="text-white text-xs sm:text-sm py-1 px-2 rounded-xl bg-slate-800">
-          <h2 className="flex justify-center items-center text-xs sm:text-sm">
+
+      {/* Image + content layer — shrinks from full card height (h-80) down to a
+          square (h-52, same value as w-52) on hover/focus, so the square source
+          image ends up displayed at its native aspect ratio with no cropping */}
+      <div className="absolute inset-x-0 top-0 h-80 overflow-hidden rounded-t-xl transition-[height] duration-300 ease-out sm:group-hover/card:h-52 sm:group-focus-within/card:h-52">
+        <Image
+          fill
+          src={foodImage}
+          alt={title}
+          sizes="208px"
+          className="object-cover"
+        />
+
+        {/* Scrim for text legibility */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent" />
+
+        {/* Chef ring — outlines the photo itself, so it shrinks along with it */}
+        {role === "chef" && (
+          <div className="pointer-events-none absolute inset-0 ring-2 ring-amber-400/80" />
+        )}
+
+        {/* Title */}
+        <h3 className="absolute inset-x-3 bottom-14 z-10 text-center text-lg font-bold leading-tight text-white">
+          {title}
+        </h3>
+
+        {/* Footer badges */}
+        <div className="absolute inset-x-3 bottom-3 z-10 flex items-center justify-between">
+          <span
+            className={`${badgeColor} rounded-full px-2.5 py-1 text-xs font-medium text-white`}
+          >
+            {complexity}
+          </span>
+
+          <span className="flex items-center gap-1 rounded-full bg-gray-800/90 px-2.5 py-1 text-xs font-medium text-white">
+            <Image
+              src={clocksvg.src}
+              alt=""
+              width={14}
+              height={14}
+              className="opacity-80"
+            />
             {time}
-          </h2>
-        </button>
+          </span>
+        </div>
       </div>
-      {/* <div
-        className={`absolute bottom-0 left-0 w-full h-3/4 bg-gradient-to-t from-black to-transparent rounded-xl `}
-      ></div> */}
-      <div className="">
-        <div
-          className={`absolute bottom-0 left-0 w-full h-full shadow-lg shadow-slate-800  ring-1 overflow-hidden ${
-            role === "chef" ? " border-gradient " : ""
-          }`}
-          style={{ borderColor: role === "chef" ? "border-red-500" : "" }}
-        ></div>
-      </div>
-      {role === "chef" ? (
-        <>
-          <div className="w-16 h-16 z-30 -top-3 -right-2 absolute sm:-top-12 sm:-right-2 sm:w-24 sm:h-24 ">
-            <picture>{/* <img src={gif1.src} alt="Chef icon." /> */}</picture>
-          </div>
-        </>
-      ) : null}
-    </div>
+
+      {/* Fixed badge layer — pinned to the card itself, independent of the
+          image container above, so these never move when it shrinks */}
+      <span
+        className={`${nutri.color} absolute left-2 top-2 z-20 flex h-6 w-6 items-center justify-center rounded-full text-xs font-bold text-white shadow`}
+      >
+        {nutriScore}
+      </span>
+
+      {role === "chef" && (
+        <span className="absolute right-2 top-2 z-20 rounded-full bg-amber-400 px-2 py-0.5 text-[10px] font-semibold text-slate-900 shadow">
+          Chef&apos;s pick
+        </span>
+      )}
+    </li>
   );
 }

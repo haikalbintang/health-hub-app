@@ -50,7 +50,7 @@ export default function DiscoverContent() {
         </div>
       </div>
       <div className="flex justify-center items-center">
-        <Button className="bg-red-500 text-xl font-bold ">Learn More</Button>
+        <Button className="bg-red-500 text-xl font-bold">Learn More</Button>
       </div>
     </div>
   );

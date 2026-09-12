@@ -1,67 +1,13 @@
 "use client";
 import { useState } from "react";
 import Card from "@/components/Card";
-import food1 from "@/components/images/food1.jpg";
-import food2 from "@/components/images/food2.jpg";
-import food3 from "@/components/images/food3.jpg";
-import food4 from "@/components/images/food4.jpg";
+import { cards } from "@/data/data";
 import { Button } from "@/components/ui/button";
+import SectionTitle from "@/components/SectionTitle";
+import SectionDiv from "@/components/SectionDiv";
 
 export default function SliderImage2() {
   const [startIndex, setStartIndex] = useState(0);
-
-  const cards = [
-    {
-      title: "Spaghetti Lasagna",
-      complexity: "Easy",
-      time: "20Min",
-      foodImage: food1.src,
-    },
-    {
-      title: "Spaghetti Lasagna",
-      complexity: "Medium",
-      time: "5Min",
-      foodImage: food2.src,
-    },
-    {
-      title: "Spaghetti Lasagna",
-      complexity: "Hard",
-      time: "1Hour",
-      foodImage: food3.src,
-      role: "chef",
-    },
-    {
-      title: "Spaghetti Lasagna",
-      complexity: "Easy",
-      time: "25Min",
-      foodImage: food4.src,
-    },
-    {
-      title: "Spaghetti Lasagna",
-      complexity: "Easy",
-      time: "20Min",
-      foodImage: food1.src,
-    },
-    {
-      title: "Spaghetti Lasagna",
-      complexity: "Medium",
-      time: "5Min",
-      foodImage: food2.src,
-      role: "chef",
-    },
-    {
-      title: "Spaghetti Lasagna",
-      complexity: "Hard",
-      time: "1Hour",
-      foodImage: food3.src,
-    },
-    {
-      title: "Spaghetti Lasagna",
-      complexity: "Easy",
-      time: "25Min",
-      foodImage: food4.src,
-    },
-  ];
 
   const displayCards = cards.slice(startIndex, startIndex + 4);
 
@@ -79,30 +25,15 @@ export default function SliderImage2() {
 
   return (
     <>
-      <div className="flex justify-center items-center px-6 pt-10 pb-4 text-xl gap-3 text-gray-700">
-        <h1>&mdash;&mdash;&mdash;&mdash;&mdash;</h1>
-        <h1 className="text-xl font-semibold text-gray-700 flex justify-center items-center text-center">
-          Be Inspired With
-        </h1>
-        <h1>&mdash;&mdash;&mdash;&mdash;&mdash;</h1>
-      </div>
-      <h1 className="flex justify-center items-center text-3xl font-bold text-gray-800">
-        Our Recipes
-      </h1>
+      <SectionDiv>Be Inspired With</SectionDiv>
+      <SectionTitle>Our Recipes</SectionTitle>
+
       <div className="group p-5">
-        <div className="flex flex-wrap justify-center items-center gap-8 lg:flex xl:flex">
-          {displayCards.map((card, index) => (
-            <Card
-              key={startIndex + index}
-              title={card.title}
-              complexity={card.complexity}
-              time={card.time}
-              foodImage={card.foodImage}
-              role={card.role}
-              maxHeight="50vh"
-            />
+        <ul className="flex flex-wrap justify-center items-center gap-8 lg:flex xl:flex">
+          {displayCards.map((card) => (
+            <Card key={card.id} data={card} />
           ))}
-        </div>
+        </ul>
         <div className="flex justify-center mt-8 gap-3">
           <Button
             onClick={handlePrev}
