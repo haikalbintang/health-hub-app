@@ -6,7 +6,7 @@ import useFetchRecipe from "@/hooks/UseFetchRecipe";
 import useFetchProfile from "@/hooks/useFetchProfile";
 import { useEffect, useState } from "react";
 import { ProfileData } from "../Modals/ModalRecipe";
-const CatOrNutLoSh = ({ recipeData, setRecipeData }: any) => {
+const Attribute = ({ recipeData, setRecipeData }: any) => {
   console.log("hasildata ini", recipeData);
   const { profile } = useFetchProfile();
   // const { recipes, error, refetchRecipes } = useFetchRecipe();
@@ -94,4 +94,4 @@ const CatOrNutLoSh = ({ recipeData, setRecipeData }: any) => {
   );
 };
 
-export default CatOrNutLoSh;
+export default Attribute;

@@ -1,6 +1,6 @@
 import React from "react";
 import { chefMainCard } from "@/data";
-export default function kitchenTools() {
+export default function KitchenTools() {
   return (
     <div>
       <div className="flex flex-col justify-center items-center gap-5">

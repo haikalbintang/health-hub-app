@@ -1,145 +1,170 @@
-"use client";
-import React, { useEffect } from "react";
-import Navbar from "@/components/Navbars/Navbar";
-import RecipeHeroPage from "@/components/RecipeHeroPage";
-import Ingredients from "@/components/Ingredients";
-import Instructions from "@/components/Instructions";
-import CommentSections from "@/components/CommentSection";
-import KitchenTools from "@/components/KitchenTools";
-import SliderImagev2 from "@/components/SliderImageS/SliderImagev2";
-import HeroPage from "@/components/For_HeroSection/HeroPage";
-import { chefMainCard } from "@/data";
-import { recipeDetailCards } from "@/data";
-import Food1 from "@/components/images/sliderImagesv2/food1.jpg";
-import Food2 from "@/components/images/sliderImagesv2/food2.jpg";
-import Food3 from "@/components/images/sliderImagesv2/food3.jpg";
-import Food4 from "@/components/images/sliderImagesv2/food4.jpg";
+import React from "react";
+import RecipeHero from "@/features/recipe-detail/RecipeHero";
+import Ingredients from "@/features/recipe-detail/Ingredients";
+import Instructions from "@/features/recipe-detail/Instructions";
+import CommentSections from "@/features/recipe-detail/CommentSection";
+import KitchenTools from "@/features/recipe-detail/KitchenTools";
 
-import facebooksvg from "@/components/images/svg/317727_facebook_social media_social_icon.svg";
-import tiktoksvg from "@/components/images/svg/tiktok-logo-logo-svgrepo-com.svg";
-import knife from "@/components/images/cookingtools/cleaver-butcher-svgrepo-com.svg";
+import { recipeDetail } from "@/data";
+import { cards } from "@/data/data";
+
+import facebooksvg from "@/components/images/facebook.svg";
+import tiktoksvg from "@/components/images/tiktok-fill.svg";
 import { Button } from "@/components/ui/button";
-import SliderImagev2_2_4 from "@/components/SliderImageS/SliderImage_vmhb/SliderImagev2_2_4";
+import Card from "@/components/Card";
+import Image from "next/image";
+import Link from "next/link";
 
-export default function Recipees() {
-  const truncate = (str: string) => {
-    if (str.length > 100) {
-      return str.substring(0, 150) + "...";
-    } else {
-      return str;
-    }
-  };
-  const images: string[] = [Food1.src, Food2.src, Food3.src, Food4.src];
+export default function RecipeDetail() {
+  const {
+    id,
+    title,
+    complexity,
+    time,
+    foodImage,
+    servings,
+    foodCategory,
+    foodOrigin,
+    summary,
+    ingredients,
+    instructions,
+    tags,
+    chef,
+  } = recipeDetail;
+
   return (
-    <div className=" justify-center items-center">
-      <RecipeHeroPage images={images} />
-      <div className="lg:flex justify-around items-center pt-5 px-20">
-        <div className="lg:flex justify-center items-center gap-10">
-          {recipeDetailCards.map((card: any, index) => (
-            <div key={index} className="flex justify-center items-center gap-4">
-              <div className="flex  gap-5">
-                <div>
-                  <Button className="bg-amber-700">
-                    Category : {card.foodCategory}
-                  </Button>
-                </div>
-                <div>
-                  <Button className="bg-amber-700">
-                    Origin : {card.foodOrigin}
-                  </Button>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-        <div className="flex flex-col lg:flex-row justify-center  lg:justify-around items-center lg:gap-12 lg:pl-20 gap-5 pt-2 lg:pt-0">
-          <div>
-            <Button className="bg-amber-700">
-              Nutri Score :{" "}
-              <span className="text-gradients font-bold">8.0</span>
+    <div className="bg-orange-50/40">
+      <RecipeHero
+        id={id}
+        title={title}
+        image={foodImage}
+        servings={servings}
+        time={time}
+        complexity={complexity}
+      />
+
+      {/* Meta strip: category / origin / score / chef, one aligned row */}
+      <div className="mt-2">
+        <div className="max-w-6xl mx-auto px-6 lg:px-10 py-4 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
+          <div className="flex items-center gap-6 text-sm text-gray-600">
+            <span>{foodCategory}</span>
+            <span className="w-px h-4 bg-gray-300" />
+            <span>{foodOrigin}</span>
+            <span className="w-px h-4 bg-gray-300" />
+            <span>
+              Nutri Score{" "}
+              <span className="font-semibold text-emerald-700 pl-1">9.3</span>
+            </span>
+          </div>
+
+          <div className="flex items-center gap-3 pr-14">
+            <Button className="hover:text-pink-700" variant="outline" size="sm">
+              Save recipe
+            </Button>
+            <Button
+              className="hover:bg-orange-200 hover:text-emerald-700"
+              variant="outline"
+              size="sm"
+            >
+              Share
             </Button>
           </div>
-          <div>
-            <Button className="bg-amber-700">I love This Recipe</Button>
-          </div>
-          <div>
-            <Button className="bg-amber-700">Share this Recipe!</Button>
-          </div>
-        </div>
-        <div className="justify-center items-center ">
-          {chefMainCard.map((card: any, index) => (
-            <div key={index} className="flex justify-start items-center gap-2">
-              <img
-                src={card.chefImage}
-                alt=""
-                className=" h-20 w-20 rounded-full object-cover"
-              />
-              <div className="flex flex-col gap-2">
-                <h1 className="text-xl font-bold text-amber-700">
-                  {card.name}
-                </h1>
-                {chefMainCard[0].socialMedia.map((social: any, index) => (
-                  <div
-                    key={index}
-                    className="flex justify-start items-center gap-2"
-                  >
-                    <Button>+ Follow</Button>
-                    <a href={social.facebook}>
-                      <img
+
+          <div className="flex items-center gap-3">
+            <Image
+              height={60}
+              width={60}
+              src={chef.chefImage}
+              alt={chef.name}
+              className="rounded-full object-cover"
+            />
+            <div className="flex flex-col">
+              <span className="text-sm font-semibold text-stone-900 leading-tight">
+                {chef.name}
+              </span>
+              <div className="flex items-center gap-2 mt-0.5">
+                {chef.socialMedia.map((social, index) => (
+                  <React.Fragment key={index}>
+                    <Link href={social.facebook}>
+                      <Image
+                        height={16}
+                        width={16}
                         src={facebooksvg.src}
-                        alt=""
-                        className="w-6 h-6 rounded-lg"
+                        alt="Facebook"
                       />
-                    </a>
-                    <a href={social.tiktok}>
-                      <img
+                    </Link>
+                    <Link href={social.tiktok}>
+                      <Image
+                        height={16}
+                        width={16}
                         src={tiktoksvg.src}
-                        alt=""
-                        className="w-6 h-6 rounded-lg"
+                        alt="TikTok"
                       />
-                    </a>
-                  </div>
+                    </Link>
+                  </React.Fragment>
                 ))}
               </div>
             </div>
+            <Button size="sm" className="bg-gray-900">
+              Follow
+            </Button>
+          </div>
+        </div>
+      </div>
+
+      {/* Summary */}
+      <div className="max-w-3xl mx-auto px-6 py-10 text-center">
+        <p className="text-lg leading-relaxed text-stone-700">{summary}</p>
+      </div>
+
+      {/* Ingredients (sticky) + Instructions */}
+      <div className="mx-auto px-6 lg:px-10 grid lg:grid-cols-[320px_1fr] gap-24 pb-4">
+        <aside className="lg:sticky lg:top-6 self-start bg-white border border-stone-200 rounded-2xl p-6">
+          <h2 className="text-base font-semibold text-stone-900 mb-4">
+            Ingredients
+          </h2>
+          <Ingredients ingredients={ingredients} />
+        </aside>
+
+        <div>
+          <h2 className="text-base font-semibold text-stone-900 mb-4">
+            Instructions
+          </h2>
+          <Instructions instructions={instructions} />
+        </div>
+      </div>
+
+      {/* Tags + tools */}
+      <div className="max-w-6xl mx-auto px-6 lg:px-10 py-10 flex flex-col lg:flex-row lg:items-center gap-6 border-t border-stone-200 mt-6">
+        <div className="flex flex-wrap gap-2">
+          {tags.map((tag: any, index: number) => (
+            <span
+              key={index}
+              className="text-sm px-3 py-1.5 rounded-full bg-stone-100 text-stone-700"
+            >
+              {tag}
+            </span>
           ))}
         </div>
-      </div>
-      {recipeDetailCards.map((card: any, index) => (
-        <div
-          key={index}
-          className="flex flex-col justify-center items-center lg:p-12"
-        >
-          <h1 className="text-xl font-bold">Recipe Summary :</h1>
-          <h1 className="flex justify-center items-center px-36">
-            {card.summary}
-          </h1>
-        </div>
-      ))}
-      <div className="lg:flex lg:pl-20">
-        <div className="lg:w-1/3">
-          <Ingredients className="flex justify-items-center items-center" />
-        </div>
-        <div className="lg:w-2/3 pt-10 px-5">
-          <Instructions className="" />
+        <div className="lg:ml-auto">
+          <KitchenTools />
         </div>
       </div>
-      <div className="lg:flex pt-10 lg:px-20  justify-center items-center gap-3">
-        {recipeDetailCards[0].tags.map((tag: any, index) => (
-          <div key={index}>
-            <h1 className="bg-slate-200 p-5 gap-2 rounded-xl w-full shadow-lg shadow-slate-500 ">
-              {tag}
-            </h1>
-          </div>
-        ))}
-        {/* <KitchenTools /> */}
-      </div>
-      <div className="lg:flex lg:pl-20 lg:pt-5">
-        <div className="lg:w-1/3 ">
+
+      {/* Comments */}
+      <div className="mx-auto px-6 lg:px-10 pb-16 grid grid-cols-6">
+        <div className="col-span-4">
           <CommentSections />
         </div>
-        <div className="xl:w-2/3 2xl:px-20">
-          <SliderImagev2_2_4 className="hidden xl:block" />
+        <div className="col-span-2 mt-10 p-3">
+          <div className="text-lg">People also like:</div>
+          <ul className="flex flex-wrap justify-around items-center my-3 gap-y-6 gap-x-2">
+            {cards.slice(0, 4).map((card) => (
+              <li key={card.id}>
+                <Card data={card} size="medium" />
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
     </div>

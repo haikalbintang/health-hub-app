@@ -114,9 +114,9 @@ export default function Card({
         <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent" />
 
         {/* Chef ring — outlines the photo itself, so it shrinks along with it */}
-        {role === "chef" && (
+        {/* {role === "chef" && (
           <div className="pointer-events-none absolute inset-0 ring-2 ring-amber-400/80" />
-        )}
+        )} */}
 
         {/* Title */}
         <h3
