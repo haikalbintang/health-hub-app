@@ -1,5 +1,5 @@
 import { useState, ChangeEvent } from "react";
-import supabase from "../app/supabase";
+import supabase from "../supabase/supabase";
 import useFetchProfile from "../hooks/useFetchProfile";
 import axios from "axios";
 
@@ -22,7 +22,7 @@ const useUploadRecipeImage = () => {
         const response = await axios.post(
           "http://127.0.0.1:5000/recipes/create",
           { attachment: updatedImage },
-          { headers }
+          { headers },
         );
       } catch (error) {
         console.error("Error fetching profile:", error);

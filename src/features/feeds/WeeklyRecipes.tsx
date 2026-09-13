@@ -9,7 +9,7 @@ interface Props {
   recipeCategoryName?: string;
   //   recipeCategoryType: string;
 }
-const WeeklyRecipes_vmhb: React.FC<Props> = ({
+const WeeklyRecipes: React.FC<Props> = ({
   //   recipeCategoryType,
   recipeCategoryName,
 }) => {
@@ -39,4 +39,4 @@ const WeeklyRecipes_vmhb: React.FC<Props> = ({
   );
 };
 
-export default WeeklyRecipes_vmhb;
+export default WeeklyRecipes;

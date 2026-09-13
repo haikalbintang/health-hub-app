@@ -1,6 +1,6 @@
 import { useState, ChangeEvent } from "react";
-import supabase from "../app/supabase";
-import useFetchProfile from "../hooks/useFetchProfile";
+import supabase from "@/supabase/supabase";
+import useFetchProfile from "@/hooks/useFetchProfile";
 import axios from "axios";
 
 interface Profile {
@@ -23,7 +23,7 @@ const useUploadComponent = () => {
         const response = await axios.put(
           "http://127.0.0.1:5000/users/update-image",
           { image: updatedImage },
-          { headers }
+          { headers },
         );
 
         setChangeImage(true);
@@ -58,7 +58,7 @@ const useUploadComponent = () => {
         }
 
         const imageUrl =
-          `https://lwgscyxqeipmjzaxphkv.supabase.co/storage/v1/object/public/user_image/${uploadData?.path} ` ??
+          `https://lwgscyxqeipmjzaxphkv.supabase.co/storage/v1/object/public/user_image/${uploadData?.path} ` ||
           "";
 
         await fetchUserImage(imageUrl);
