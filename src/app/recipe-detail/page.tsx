@@ -3,7 +3,7 @@ import RecipeHero from "@/features/recipe-detail/RecipeHero";
 import Ingredients from "@/features/recipe-detail/Ingredients";
 import Instructions from "@/features/recipe-detail/Instructions";
 import CommentSections from "@/features/recipe-detail/CommentSection";
-import KitchenTools from "@/features/recipe-detail/KitchenTools";
+// import KitchenTools from "@/features/recipe-detail/KitchenTools";
 
 import { recipeDetail } from "@/data";
 import { cards } from "@/data/data";
@@ -146,9 +146,7 @@ export default function RecipeDetail() {
             </span>
           ))}
         </div>
-        <div className="lg:ml-auto">
-          <KitchenTools />
-        </div>
+        <div className="lg:ml-auto">{/* <KitchenTools /> */}</div>
       </div>
 
       {/* Comments */}
