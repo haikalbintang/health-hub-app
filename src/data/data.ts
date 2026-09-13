@@ -24,11 +24,11 @@ export const SIGN_IN_OPTIONS = [
 export const cards = [
   {
     id: 1,
-    title: "Spaghetti Lasagna",
+    title: "Fried Rice",
     complexity: "Easy",
     time: "20 Min",
     foodImage: food1.src,
-    role: "user",
+    role: "chef",
     nutriScore: 9.0,
     description:
       "lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, est?",
@@ -39,7 +39,10 @@ export const cards = [
     complexity: "Medium",
     time: "5 Min",
     foodImage: food2.src,
+    role: "user",
     nutriScore: 8.5,
+    description:
+      "lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, est?",
   },
   {
     id: 3,
@@ -49,6 +52,8 @@ export const cards = [
     foodImage: food3.src,
     role: "chef",
     nutriScore: 10,
+    description:
+      "lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, est?",
   },
   {
     id: 4,
@@ -56,35 +61,99 @@ export const cards = [
     complexity: "Easy",
     time: "25 Min",
     foodImage: food4.src,
+    role: "user",
     nutriScore: 7.2,
+    description:
+      "lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, est?",
   },
   {
     id: 5,
     title: "Spaghetti Lasagna",
-    complexity: "Easy",
-    time: "20 Min",
-    foodImage: food1.src,
+    complexity: "Hard",
+    time: "1 Hour",
+    foodImage: food3.src,
+    role: "chef",
+    nutriScore: 10,
+    description:
+      "lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, est?",
   },
   {
     id: 6,
-    title: "Spaghetti Lasagna",
-    complexity: "Medium",
-    time: "5 Min",
-    foodImage: food2.src,
-    role: "chef",
+    title: "Fried Rice",
+    complexity: "Easy",
+    time: "20 Min",
+    foodImage: food1.src,
+    role: "user",
+    nutriScore: 9.0,
+    description:
+      "lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, est?",
   },
   {
     id: 7,
     title: "Spaghetti Lasagna",
-    complexity: "Hard",
-    time: "1 Hour",
-    foodImage: food3.src,
+    complexity: "Easy",
+    time: "25 Min",
+    foodImage: food4.src,
+    role: "user",
+    nutriScore: 7.2,
+    description:
+      "lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, est?",
   },
   {
     id: 8,
     title: "Spaghetti Lasagna",
+    complexity: "Medium",
+    time: "5 Min",
+    foodImage: food2.src,
+    role: "user",
+    nutriScore: 8.5,
+    description:
+      "lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, est?",
+  },
+  {
+    id: 9,
+    title: "Spaghetti Lasagna",
     complexity: "Easy",
     time: "25 Min",
     foodImage: food4.src,
+    role: "user",
+    nutriScore: 7.2,
+    description:
+      "lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, est?",
+  },
+
+  {
+    id: 10,
+    title: "Spaghetti Lasagna",
+    complexity: "Medium",
+    time: "5 Min",
+    foodImage: food2.src,
+    role: "user",
+    nutriScore: 8.5,
+    description:
+      "lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, est?",
+  },
+  {
+    id: 11,
+    title: "Spaghetti Lasagna",
+    complexity: "Hard",
+    time: "1 Hour",
+    foodImage: food3.src,
+    role: "chef",
+    nutriScore: 10,
+    description:
+      "lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, est?",
+  },
+
+  {
+    id: 12,
+    title: "Fried Rice",
+    complexity: "Easy",
+    time: "20 Min",
+    foodImage: food1.src,
+    role: "user",
+    nutriScore: 9.0,
+    description:
+      "lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, est?",
   },
 ];
