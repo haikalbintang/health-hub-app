@@ -1,12 +1,12 @@
-import food1 from "../components/images/sliderImagesv2/authentic-italian-pasta.jpg";
-import food2 from "../components/images/sliderImagesv2/food2.jpg";
-import food3 from "../components/images/sliderImagesv2/food3.jpg";
-import food4 from "../components/images/sliderImagesv2/food4.jpg";
+import food1 from "@/components/images/food1.jpg";
+import food2 from "@/components/images/food2.jpg";
+import food3 from "@/components/images/food3.jpg";
+import food4 from "@/components/images/food4.jpg";
 
-import chef1 from "../components/images/chefimage/Joel-Robuchon.jpg";
-import chef2 from "../components/images/chefimage/jemieolif.jpg";
-import chef3 from "../components/images/chefimage/gordonram.jpeg";
-import chef4 from "../components/images/chefimage/Pierre-Gagnaire.jpg";
+// import chef1 from "../components/images/chefimage/Joel-Robuchon.jpg";
+// import chef2 from "../components/images/chefimage/jemieolif.jpg";
+// import chef3 from "../components/images/chefimage/gordonram.jpeg";
+// import chef4 from "../components/images/chefimage/Pierre-Gagnaire.jpg";
 
 import tools1 from "../components/images/cookingtools/cleaver-butcher-svgrepo-com.svg";
 import tools2 from "../components/images/cookingtools/grater-svgrepo-com.svg";
@@ -143,593 +143,593 @@ export const cards = [
   },
 ];
 
-export const chefMainCard = [
-  {
-    chefImage: chef4.src,
-    name: "Joel Robuchon",
-    description:
-      "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Optio, mollitia iure voluptas earum porro aliquid cum quae quasi, sequi, laborum at et excepturi quam voluptate!",
-    userRole: "Famous Chef",
-    socialMedia: [
-      {
-        facebook: "https://www.facebook.com/",
-        tiktok: "https://www.tiktok.com/",
-        followers: "100k",
-        following: "100k",
-      },
-    ],
-    recipe: [
-      {
-        category: "Healty recipe",
-        image: food1.src,
-        recipeDescription:
-          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, est?",
-        recipeName: "Pizza Margharita",
-        tags: ["#Easy", " #Spicy", " #Vegan"],
-      },
+// export const chefMainCard = [
+//   {
+//     chefImage: chef4.src,
+//     name: "Joel Robuchon",
+//     description:
+//       "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Optio, mollitia iure voluptas earum porro aliquid cum quae quasi, sequi, laborum at et excepturi quam voluptate!",
+//     userRole: "Famous Chef",
+//     socialMedia: [
+//       {
+//         facebook: "https://www.facebook.com/",
+//         tiktok: "https://www.tiktok.com/",
+//         followers: "100k",
+//         following: "100k",
+//       },
+//     ],
+//     recipe: [
+//       {
+//         category: "Healty recipe",
+//         image: food1.src,
+//         recipeDescription:
+//           "Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, est?",
+//         recipeName: "Pizza Margharita",
+//         tags: ["#Easy", " #Spicy", " #Vegan"],
+//       },
 
-      {
-        category: "Main Dish",
-        image: food1.src,
-        recipeDescription:
-          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, est?",
-        recipeName: "Pizza Margharita",
-        tags: ["#Easy", " #Spicy", " #Vegan"],
-      },
-      {
-        category: "Side Dish",
-        image: food2.src,
-        recipeDescription:
-          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, est?",
-        recipeName: "Spaghetti Oglio Olio",
-        tags: ["#Normal", " #Low Sugar", " #High protein"],
-      },
-      {
-        category: "Appetizer",
-        image: food3.src,
-        recipeDescription:
-          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, est?",
-        recipeName: "Fried Chicken",
-        tags: ["#Normal", " #Low Sugar", " #High protein"],
-      },
-      {
-        category: "Bevarage",
-        image: food4.src,
-        recipeDescription:
-          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, est?",
-        recipeName: "lemon squash",
-        tags: ["#Normal", " #Low Sugar", " #High protein"],
-      },
-      {
-        category: "Dessert",
-        image: food2.src,
-        recipeDescription:
-          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, est?",
-        recipeName: "Gado Gado jakarta",
-        tags: ["#Normal", " #Low Sugar", " #High protein"],
-      },
-    ],
-    kitchenTools: [
-      { toolsName: "knife kitchen", toolsImage: tools1.src },
-      { toolsName: "knife", toolsImage: tools2.src },
-      { toolsName: "knife", toolsImage: tools3.src },
-      { toolsName: "knife", toolsImage: tools4.src },
-      { toolsName: "knife", toolsImage: tools1.src },
-      { toolsName: "knife", toolsImage: tools2.src },
-    ],
-    chefCards: [
-      {
-        chefImage: chef3.src,
-      },
-      {
-        chefImage: chef2.src,
-      },
-      {
-        chefImage: chef1.src,
-      },
-      {
-        chefImage: chef4.src,
-      },
-      {
-        chefImage: chef2.src,
-      },
-      {
-        chefImage: chef1.src,
-      },
-    ],
-  },
-];
+//       {
+//         category: "Main Dish",
+//         image: food1.src,
+//         recipeDescription:
+//           "Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, est?",
+//         recipeName: "Pizza Margharita",
+//         tags: ["#Easy", " #Spicy", " #Vegan"],
+//       },
+//       {
+//         category: "Side Dish",
+//         image: food2.src,
+//         recipeDescription:
+//           "Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, est?",
+//         recipeName: "Spaghetti Oglio Olio",
+//         tags: ["#Normal", " #Low Sugar", " #High protein"],
+//       },
+//       {
+//         category: "Appetizer",
+//         image: food3.src,
+//         recipeDescription:
+//           "Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, est?",
+//         recipeName: "Fried Chicken",
+//         tags: ["#Normal", " #Low Sugar", " #High protein"],
+//       },
+//       {
+//         category: "Bevarage",
+//         image: food4.src,
+//         recipeDescription:
+//           "Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, est?",
+//         recipeName: "lemon squash",
+//         tags: ["#Normal", " #Low Sugar", " #High protein"],
+//       },
+//       {
+//         category: "Dessert",
+//         image: food2.src,
+//         recipeDescription:
+//           "Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, est?",
+//         recipeName: "Gado Gado jakarta",
+//         tags: ["#Normal", " #Low Sugar", " #High protein"],
+//       },
+//     ],
+//     kitchenTools: [
+//       { toolsName: "knife kitchen", toolsImage: tools1.src },
+//       { toolsName: "knife", toolsImage: tools2.src },
+//       { toolsName: "knife", toolsImage: tools3.src },
+//       { toolsName: "knife", toolsImage: tools4.src },
+//       { toolsName: "knife", toolsImage: tools1.src },
+//       { toolsName: "knife", toolsImage: tools2.src },
+//     ],
+//     chefCards: [
+//       {
+//         chefImage: chef3.src,
+//       },
+//       {
+//         chefImage: chef2.src,
+//       },
+//       {
+//         chefImage: chef1.src,
+//       },
+//       {
+//         chefImage: chef4.src,
+//       },
+//       {
+//         chefImage: chef2.src,
+//       },
+//       {
+//         chefImage: chef1.src,
+//       },
+//     ],
+//   },
+// ];
 
-export const chefMainCard2 = [
-  {
-    chefImage: chef4.src,
-    name: "Joel Robuchon",
-    firstName: "Joel",
-    lastName: "Robuchon",
-    email: "nQqjM@example.com",
-    phoneNumber: "081234567890",
-    country: "Indonesia",
-    city: "Jakarta",
-    postalCode: "12345",
-    description:
-      "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Optio, mollitia iure voluptas earum porro aliquid cum quae quasi, sequi, laborum at et excepturi quam voluptate!",
-    userRole: "Famous Chef",
-    socialMedia: [
-      {
-        facebook: "https://www.facebook.com/",
-        tiktok: "https://www.tiktok.com/",
-        followers: "100k",
-        following: "100k",
-      },
-    ],
-    address: "Jakarta, Indonesia",
-    sideList: {
-      category: {
-        MyRecipe: [
-          {
-            recipeName: "Pizza Margharita",
-            image: food1.src,
-            recipeDescription:
-              "Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, est?",
-            tags: ["#Easy", "#Spicy", "#Vegan"],
-            difficulty: "easy",
-            servings: "2Person",
-            nutriScore: "9.0",
-          },
-          {
-            recipeName: "Pizza Margharita",
-            image: food1.src,
-            recipeDescription:
-              "Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, est?",
-            tags: ["#Easy", "#Spicy", "#Vegan"],
-            difficulty: "easy",
-            servings: "2Person",
-            nutriScore: "9.0",
-          },
-          {
-            recipeName: "Pizza Margharita",
-            image: food1.src,
-            recipeDescription:
-              "Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, est?",
-            tags: ["#Easy", "#Spicy", "#Vegan"],
-            difficulty: "easy",
-            servings: "2Person",
-            nutriScore: "9.0",
-          },
-          {
-            recipeName: "Pizza Margharita",
-            image: food1.src,
-            recipeDescription:
-              "Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, est?",
-            tags: ["#Easy", "#Spicy", "#Vegan"],
-            difficulty: "easy",
-            servings: "2Person",
-            nutriScore: "9.0",
-          },
-        ],
-        FollowedRecipes: [
-          {
-            recipeName: "Pizza Margharita",
-            image: food1.src,
-            recipeDescription:
-              "Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, est?",
-            tags: ["#Easy", "#Spicy", "#Vegan"],
-            difficulty: "easy",
-            servings: "2Person",
-            nutriScore: "9.0",
-          },
-          {
-            recipeName: "Pizza Margharita",
-            image: food1.src,
-            recipeDescription:
-              "Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, est?",
-            tags: ["#Easy", "#Spicy", "#Vegan"],
-            difficulty: "easy",
-            servings: "2Person",
-            nutriScore: "9.0",
-          },
-          {
-            recipeName: "Pizza Margharita",
-            image: food1.src,
-            recipeDescription:
-              "Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, est?",
-            tags: ["#Easy", "#Spicy", "#Vegan"],
-            difficulty: "easy",
-            servings: "2Person",
-            nutriScore: "9.0",
-          },
-        ],
-        MyFavoriteRecipes: [
-          {
-            recipeName: "Pizza Margharita",
-            image: food1.src,
-            recipeDescription:
-              "Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, est?",
-            tags: ["#Easy", "#Spicy", "#Vegan"],
-            difficulty: "easy",
-            servings: "2Person",
-            nutriScore: "9.0",
-          },
-          {
-            recipeName: "Pizza Margharita",
-            image: food1.src,
-            recipeDescription:
-              "Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, est?",
-            tags: ["#Easy", "#Spicy", "#Vegan"],
-            difficulty: "easy",
-            servings: "2Person",
-            nutriScore: "9.0",
-          },
-        ],
-      },
-    },
-    recipe: [
-      {
-        category: {
-          WeeklyRecipes: [
-            {
-              recipeName: "Pizza Margharita",
-              image: food1.src,
-              recipeDescription:
-                "Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, est?",
-              tags: ["#Easy", "#Spicy", "#Vegan"],
-              difficulty: "easy",
-              servings: "2Person",
-              nutriScore: "9.0",
-            },
-            {
-              recipeName: "Pizza Margharita",
-              image: food1.src,
-              recipeDescription:
-                "Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, est?",
-              tags: ["#Easy", "#Spicy", "#Vegan"],
-              difficulty: "easy",
-              servings: "2Person",
-              nutriScore: "9.0",
-            },
-            {
-              recipeName: "Pizza Margharita",
-              image: food1.src,
-              recipeDescription:
-                "Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, est?",
-              tags: ["#Easy", "#Spicy", "#Vegan"],
-              difficulty: "easy",
-              servings: "2Person",
-              nutriScore: "9.0",
-            },
-            {
-              recipeName: "Pizza Margharita",
-              image: food1.src,
-              recipeDescription:
-                "Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, est?",
-              tags: ["#Easy", "#Spicy", "#Vegan"],
-              difficulty: "easy",
-              servings: "2Person",
-              nutriScore: "9.0",
-            },
-            {
-              recipeName: "Pizza Margharita",
-              image: food1.src,
-              recipeDescription:
-                "Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, est?",
-              tags: ["#Easy", "#Spicy", "#Vegan"],
-              difficulty: "easy",
-              servings: "2Person",
-              nutriScore: "9.0",
-            },
-            {
-              recipeName: "Pizza Margharita",
-              image: food1.src,
-              recipeDescription:
-                "Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, est?",
-              tags: ["#Easy", "#Spicy", "#Vegan"],
-              difficulty: "easy",
-              servings: "2Person",
-              nutriScore: "9.0",
-            },
-          ],
-          HealtyRecipes: [
-            {
-              recipeName: "Pizza Margharita",
-              image: food1.src,
-              recipeDescription:
-                "Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, est?",
-              tags: ["#Easy", "#Spicy", "#Vegan"],
-              complexity: "easy",
-              servings: "2Person",
-              nutriScore: "9.0",
-            },
-            {
-              recipeName: "Pizza olio oglio",
-              image: food1.src,
-              recipeDescription:
-                "Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, est?",
-              tags: ["#Easy", "#Spicy", "#Vegan"],
-              complexity: "easy",
-              servings: "2Person",
-              nutriScore: "9.0",
-            },
-            {
-              recipeName: "Pizza olio oglio",
-              image: food1.src,
-              recipeDescription:
-                "Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, est?",
-              tags: ["#Easy", "#Spicy", "#Vegan"],
-              complexity: "easy",
-              servings: "2Person",
-              nutriScore: "9.0",
-            },
-            {
-              recipeName: "Pizza olio oglio",
-              image: food1.src,
-              recipeDescription:
-                "Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, est?",
-              tags: ["#Easy", "#Spicy", "#Vegan"],
-              complexity: "easy",
-              servings: "2Person",
-              nutriScore: "9.0",
-            },
-            {
-              recipeName: "Pizza olio oglio",
-              image: food1.src,
-              recipeDescription:
-                "Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, est?",
-              tags: ["#Easy", "#Spicy", "#Vegan"],
-              complexity: "easy",
-              servings: "2Person",
-              nutriScore: "9.0",
-            },
-            {
-              recipeName: "Pizza olio oglio",
-              image: food1.src,
-              recipeDescription:
-                "Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, est?",
-              tags: ["#Easy", "#Spicy", "#Vegan"],
-              complexity: "easy",
-              servings: "2Person",
-              nutriScore: "9.0",
-            },
-            {
-              recipeName: "Pizza olio oglio",
-              image: food1.src,
-              recipeDescription:
-                "Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, est?",
-              tags: ["#Easy", "#Spicy", "#Vegan"],
-              complexity: "easy",
-              servings: "2Person",
-              nutriScore: "9.0",
-            },
-            {
-              recipeName: "Pizza olio oglio",
-              image: food1.src,
-              recipeDescription:
-                "Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, est?",
-              tags: ["#Easy", "#Spicy", "#Vegan"],
-              complexity: "easy",
-              servings: "2Person",
-              nutriScore: "9.0",
-            },
-            {
-              recipeName: "Pizza olio oglio",
-              image: food1.src,
-              recipeDescription:
-                "Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, est?",
-              tags: ["#Easy", "#Spicy", "#Vegan"],
-              complexity: "easy",
-              servings: "2Person",
-              nutriScore: "9.0",
-            },
-            {
-              recipeName: "Pizza olio oglio",
-              image: food1.src,
-              recipeDescription:
-                "Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, est?",
-              tags: ["#Easy", "#Spicy", "#Vegan"],
-              complexity: "easy",
-              servings: "2Person",
-              nutriScore: "9.0",
-            },
-            {
-              recipeName: "Pizza olio oglio",
-              image: food1.src,
-              recipeDescription:
-                "Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, est?",
-              tags: ["#Easy", "#Spicy", "#Vegan"],
-              complexity: "easy",
-              servings: "2Person",
-              nutriScore: "9.0",
-            },
-          ],
-          Desserts: [
-            {
-              recipeName: "Pizza olio oglio",
-              image: food1.src,
-              recipeDescription:
-                "Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, est?",
-              tags: ["#Easy", "#Spicy", "#Vegan"],
-              complexity: "easy",
-              servings: "2Person",
-              nutriScore: "9.0",
-            },
-            {
-              recipeName: "Pizza olio oglio",
-              image: food1.src,
-              recipeDescription:
-                "Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, est?",
-              tags: ["#Easy", "#Spicy", "#Vegan"],
-              complexity: "easy",
-              servings: "2Person",
-              nutriScore: "9.0",
-            },
-            {
-              recipeName: "Pizza olio oglio",
-              image: food1.src,
-              recipeDescription:
-                "Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, est?",
-              tags: ["#Easy", "#Spicy", "#Vegan"],
-              complexity: "easy",
-              servings: "2Person",
-              nutriScore: "9.0",
-            },
-          ],
-          MainDishes: [
-            {
-              recipeName: "Pizza olio oglio",
-              image: food1.src,
-              recipeDescription:
-                "Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, est?",
-              tags: ["#Easy", "#Spicy", "#Vegan"],
-              complexity: "easy",
-              servings: "2Person",
-              nutriScore: "9.0",
-            },
-            {
-              recipeName: "Pizza olio oglio",
-              image: food1.src,
-              recipeDescription:
-                "Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, est?",
-              tags: ["#Easy", "#Spicy", "#Vegan"],
-              complexity: "easy",
-              servings: "2Person",
-              nutriScore: "9.0",
-            },
-            {
-              recipeName: "Pizza olio oglio",
-              image: food1.src,
-              recipeDescription:
-                "Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, est?",
-              tags: ["#Easy", "#Spicy", "#Vegan"],
-              complexity: "easy",
-              servings: "2Person",
-              nutriScore: "9.0",
-            },
-          ],
-          Appetizers: [
-            {
-              recipeName: "Pizza olio oglio",
-              image: food1.src,
-              recipeDescription:
-                "Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, est?",
-              tags: ["#Easy", "#Spicy", "#Vegan"],
-              complexity: "easy",
-              servings: "2Person",
-              nutriScore: "9.0",
-            },
-            {
-              recipeName: "Pizza olio oglio",
-              image: food1.src,
-              recipeDescription:
-                "Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, est?",
-              tags: ["#Easy", "#Spicy", "#Vegan"],
-              complexity: "easy",
-              servings: "2Person",
-              nutriScore: "9.0",
-            },
-          ],
-          Beverages: [
-            {
-              recipeName: "Pizza olio oglio",
-              image: food1.src,
-              recipeDescription:
-                "Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, est?",
-              tags: ["#Easy", "#Spicy", "#Vegan"],
-              complexity: "easy",
-              servings: "2Person",
-              nutriScore: "9.0",
-            },
-            {
-              recipeName: "Pizza olio oglio",
-              image: food1.src,
-              recipeDescription:
-                "Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, est?",
-              tags: ["#Easy", "#Spicy", "#Vegan"],
-              complexity: "easy",
-              servings: "2Person",
-              nutriScore: "9.0",
-            },
-            {
-              recipeName: "Pizza olio oglio",
-              image: food1.src,
-              recipeDescription:
-                "Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, est?",
-              tags: ["#Easy", "#Spicy", "#Vegan"],
-              complexity: "easy",
-              servings: "2Person",
-              nutriScore: "9.0",
-            },
-            {
-              recipeName: "Pizza olio oglio",
-              image: food1.src,
-              recipeDescription:
-                "Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, est?",
-              tags: ["#Easy", "#Spicy", "#Vegan"],
-              complexity: "easy",
-              servings: "2Person",
-              nutriScore: "9.0",
-            },
-          ],
-          SideDishes: [
-            {
-              recipeName: "Pizza olio oglio",
-              image: food1.src,
-              recipeDescription:
-                "Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, est?",
-              tags: ["#Easy", "#Spicy", "#Vegan"],
-              complexity: "easy",
-              servings: "2Person",
-              nutriScore: "9.0",
-            },
-            {
-              recipeName: "Pizza olio oglio",
-              image: food1.src,
-              recipeDescription:
-                "Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, est?",
-              tags: ["#Easy", "#Spicy", "#Vegan"],
-              complexity: "easy",
-              servings: "2Person",
-              nutriScore: "9.0",
-            },
-            {
-              recipeName: "Pizza olio oglio",
-              image: food1.src,
-              recipeDescription:
-                "Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, est?",
-              tags: ["#Easy", "#Spicy", "#Vegan"],
-              complexity: "easy",
-              servings: "2Person",
-              nutriScore: "9.0",
-            },
-          ],
-        },
-      },
-    ],
-    kitchenTools: [
-      { toolsName: "knife kitchen", toolsImage: tools1.src },
-      { toolsName: "knife", toolsImage: tools2.src },
-      { toolsName: "knife", toolsImage: tools3.src },
-      { toolsName: "knife", toolsImage: tools4.src },
-      { toolsName: "knife", toolsImage: tools1.src },
-      { toolsName: "knife", toolsImage: tools2.src },
-    ],
-    chefCards: [
-      {
-        chefImage: chef3.src,
-      },
-      {
-        chefImage: chef2.src,
-      },
-      {
-        chefImage: chef1.src,
-      },
-      {
-        chefImage: chef4.src,
-      },
-      {
-        chefImage: chef2.src,
-      },
-      {
-        chefImage: chef1.src,
-      },
-    ],
-  },
-];
+// export const chefMainCard2 = [
+//   {
+//     chefImage: chef4.src,
+//     name: "Joel Robuchon",
+//     firstName: "Joel",
+//     lastName: "Robuchon",
+//     email: "nQqjM@example.com",
+//     phoneNumber: "081234567890",
+//     country: "Indonesia",
+//     city: "Jakarta",
+//     postalCode: "12345",
+//     description:
+//       "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Optio, mollitia iure voluptas earum porro aliquid cum quae quasi, sequi, laborum at et excepturi quam voluptate!",
+//     userRole: "Famous Chef",
+//     socialMedia: [
+//       {
+//         facebook: "https://www.facebook.com/",
+//         tiktok: "https://www.tiktok.com/",
+//         followers: "100k",
+//         following: "100k",
+//       },
+//     ],
+//     address: "Jakarta, Indonesia",
+//     sideList: {
+//       category: {
+//         MyRecipe: [
+//           {
+//             recipeName: "Pizza Margharita",
+//             image: food1.src,
+//             recipeDescription:
+//               "Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, est?",
+//             tags: ["#Easy", "#Spicy", "#Vegan"],
+//             difficulty: "easy",
+//             servings: "2Person",
+//             nutriScore: "9.0",
+//           },
+//           {
+//             recipeName: "Pizza Margharita",
+//             image: food1.src,
+//             recipeDescription:
+//               "Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, est?",
+//             tags: ["#Easy", "#Spicy", "#Vegan"],
+//             difficulty: "easy",
+//             servings: "2Person",
+//             nutriScore: "9.0",
+//           },
+//           {
+//             recipeName: "Pizza Margharita",
+//             image: food1.src,
+//             recipeDescription:
+//               "Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, est?",
+//             tags: ["#Easy", "#Spicy", "#Vegan"],
+//             difficulty: "easy",
+//             servings: "2Person",
+//             nutriScore: "9.0",
+//           },
+//           {
+//             recipeName: "Pizza Margharita",
+//             image: food1.src,
+//             recipeDescription:
+//               "Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, est?",
+//             tags: ["#Easy", "#Spicy", "#Vegan"],
+//             difficulty: "easy",
+//             servings: "2Person",
+//             nutriScore: "9.0",
+//           },
+//         ],
+//         FollowedRecipes: [
+//           {
+//             recipeName: "Pizza Margharita",
+//             image: food1.src,
+//             recipeDescription:
+//               "Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, est?",
+//             tags: ["#Easy", "#Spicy", "#Vegan"],
+//             difficulty: "easy",
+//             servings: "2Person",
+//             nutriScore: "9.0",
+//           },
+//           {
+//             recipeName: "Pizza Margharita",
+//             image: food1.src,
+//             recipeDescription:
+//               "Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, est?",
+//             tags: ["#Easy", "#Spicy", "#Vegan"],
+//             difficulty: "easy",
+//             servings: "2Person",
+//             nutriScore: "9.0",
+//           },
+//           {
+//             recipeName: "Pizza Margharita",
+//             image: food1.src,
+//             recipeDescription:
+//               "Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, est?",
+//             tags: ["#Easy", "#Spicy", "#Vegan"],
+//             difficulty: "easy",
+//             servings: "2Person",
+//             nutriScore: "9.0",
+//           },
+//         ],
+//         MyFavoriteRecipes: [
+//           {
+//             recipeName: "Pizza Margharita",
+//             image: food1.src,
+//             recipeDescription:
+//               "Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, est?",
+//             tags: ["#Easy", "#Spicy", "#Vegan"],
+//             difficulty: "easy",
+//             servings: "2Person",
+//             nutriScore: "9.0",
+//           },
+//           {
+//             recipeName: "Pizza Margharita",
+//             image: food1.src,
+//             recipeDescription:
+//               "Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, est?",
+//             tags: ["#Easy", "#Spicy", "#Vegan"],
+//             difficulty: "easy",
+//             servings: "2Person",
+//             nutriScore: "9.0",
+//           },
+//         ],
+//       },
+//     },
+//     recipe: [
+//       {
+//         category: {
+//           WeeklyRecipes: [
+//             {
+//               recipeName: "Pizza Margharita",
+//               image: food1.src,
+//               recipeDescription:
+//                 "Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, est?",
+//               tags: ["#Easy", "#Spicy", "#Vegan"],
+//               difficulty: "easy",
+//               servings: "2Person",
+//               nutriScore: "9.0",
+//             },
+//             {
+//               recipeName: "Pizza Margharita",
+//               image: food1.src,
+//               recipeDescription:
+//                 "Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, est?",
+//               tags: ["#Easy", "#Spicy", "#Vegan"],
+//               difficulty: "easy",
+//               servings: "2Person",
+//               nutriScore: "9.0",
+//             },
+//             {
+//               recipeName: "Pizza Margharita",
+//               image: food1.src,
+//               recipeDescription:
+//                 "Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, est?",
+//               tags: ["#Easy", "#Spicy", "#Vegan"],
+//               difficulty: "easy",
+//               servings: "2Person",
+//               nutriScore: "9.0",
+//             },
+//             {
+//               recipeName: "Pizza Margharita",
+//               image: food1.src,
+//               recipeDescription:
+//                 "Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, est?",
+//               tags: ["#Easy", "#Spicy", "#Vegan"],
+//               difficulty: "easy",
+//               servings: "2Person",
+//               nutriScore: "9.0",
+//             },
+//             {
+//               recipeName: "Pizza Margharita",
+//               image: food1.src,
+//               recipeDescription:
+//                 "Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, est?",
+//               tags: ["#Easy", "#Spicy", "#Vegan"],
+//               difficulty: "easy",
+//               servings: "2Person",
+//               nutriScore: "9.0",
+//             },
+//             {
+//               recipeName: "Pizza Margharita",
+//               image: food1.src,
+//               recipeDescription:
+//                 "Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, est?",
+//               tags: ["#Easy", "#Spicy", "#Vegan"],
+//               difficulty: "easy",
+//               servings: "2Person",
+//               nutriScore: "9.0",
+//             },
+//           ],
+//           HealtyRecipes: [
+//             {
+//               recipeName: "Pizza Margharita",
+//               image: food1.src,
+//               recipeDescription:
+//                 "Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, est?",
+//               tags: ["#Easy", "#Spicy", "#Vegan"],
+//               complexity: "easy",
+//               servings: "2Person",
+//               nutriScore: "9.0",
+//             },
+//             {
+//               recipeName: "Pizza olio oglio",
+//               image: food1.src,
+//               recipeDescription:
+//                 "Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, est?",
+//               tags: ["#Easy", "#Spicy", "#Vegan"],
+//               complexity: "easy",
+//               servings: "2Person",
+//               nutriScore: "9.0",
+//             },
+//             {
+//               recipeName: "Pizza olio oglio",
+//               image: food1.src,
+//               recipeDescription:
+//                 "Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, est?",
+//               tags: ["#Easy", "#Spicy", "#Vegan"],
+//               complexity: "easy",
+//               servings: "2Person",
+//               nutriScore: "9.0",
+//             },
+//             {
+//               recipeName: "Pizza olio oglio",
+//               image: food1.src,
+//               recipeDescription:
+//                 "Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, est?",
+//               tags: ["#Easy", "#Spicy", "#Vegan"],
+//               complexity: "easy",
+//               servings: "2Person",
+//               nutriScore: "9.0",
+//             },
+//             {
+//               recipeName: "Pizza olio oglio",
+//               image: food1.src,
+//               recipeDescription:
+//                 "Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, est?",
+//               tags: ["#Easy", "#Spicy", "#Vegan"],
+//               complexity: "easy",
+//               servings: "2Person",
+//               nutriScore: "9.0",
+//             },
+//             {
+//               recipeName: "Pizza olio oglio",
+//               image: food1.src,
+//               recipeDescription:
+//                 "Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, est?",
+//               tags: ["#Easy", "#Spicy", "#Vegan"],
+//               complexity: "easy",
+//               servings: "2Person",
+//               nutriScore: "9.0",
+//             },
+//             {
+//               recipeName: "Pizza olio oglio",
+//               image: food1.src,
+//               recipeDescription:
+//                 "Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, est?",
+//               tags: ["#Easy", "#Spicy", "#Vegan"],
+//               complexity: "easy",
+//               servings: "2Person",
+//               nutriScore: "9.0",
+//             },
+//             {
+//               recipeName: "Pizza olio oglio",
+//               image: food1.src,
+//               recipeDescription:
+//                 "Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, est?",
+//               tags: ["#Easy", "#Spicy", "#Vegan"],
+//               complexity: "easy",
+//               servings: "2Person",
+//               nutriScore: "9.0",
+//             },
+//             {
+//               recipeName: "Pizza olio oglio",
+//               image: food1.src,
+//               recipeDescription:
+//                 "Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, est?",
+//               tags: ["#Easy", "#Spicy", "#Vegan"],
+//               complexity: "easy",
+//               servings: "2Person",
+//               nutriScore: "9.0",
+//             },
+//             {
+//               recipeName: "Pizza olio oglio",
+//               image: food1.src,
+//               recipeDescription:
+//                 "Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, est?",
+//               tags: ["#Easy", "#Spicy", "#Vegan"],
+//               complexity: "easy",
+//               servings: "2Person",
+//               nutriScore: "9.0",
+//             },
+//             {
+//               recipeName: "Pizza olio oglio",
+//               image: food1.src,
+//               recipeDescription:
+//                 "Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, est?",
+//               tags: ["#Easy", "#Spicy", "#Vegan"],
+//               complexity: "easy",
+//               servings: "2Person",
+//               nutriScore: "9.0",
+//             },
+//           ],
+//           Desserts: [
+//             {
+//               recipeName: "Pizza olio oglio",
+//               image: food1.src,
+//               recipeDescription:
+//                 "Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, est?",
+//               tags: ["#Easy", "#Spicy", "#Vegan"],
+//               complexity: "easy",
+//               servings: "2Person",
+//               nutriScore: "9.0",
+//             },
+//             {
+//               recipeName: "Pizza olio oglio",
+//               image: food1.src,
+//               recipeDescription:
+//                 "Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, est?",
+//               tags: ["#Easy", "#Spicy", "#Vegan"],
+//               complexity: "easy",
+//               servings: "2Person",
+//               nutriScore: "9.0",
+//             },
+//             {
+//               recipeName: "Pizza olio oglio",
+//               image: food1.src,
+//               recipeDescription:
+//                 "Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, est?",
+//               tags: ["#Easy", "#Spicy", "#Vegan"],
+//               complexity: "easy",
+//               servings: "2Person",
+//               nutriScore: "9.0",
+//             },
+//           ],
+//           MainDishes: [
+//             {
+//               recipeName: "Pizza olio oglio",
+//               image: food1.src,
+//               recipeDescription:
+//                 "Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, est?",
+//               tags: ["#Easy", "#Spicy", "#Vegan"],
+//               complexity: "easy",
+//               servings: "2Person",
+//               nutriScore: "9.0",
+//             },
+//             {
+//               recipeName: "Pizza olio oglio",
+//               image: food1.src,
+//               recipeDescription:
+//                 "Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, est?",
+//               tags: ["#Easy", "#Spicy", "#Vegan"],
+//               complexity: "easy",
+//               servings: "2Person",
+//               nutriScore: "9.0",
+//             },
+//             {
+//               recipeName: "Pizza olio oglio",
+//               image: food1.src,
+//               recipeDescription:
+//                 "Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, est?",
+//               tags: ["#Easy", "#Spicy", "#Vegan"],
+//               complexity: "easy",
+//               servings: "2Person",
+//               nutriScore: "9.0",
+//             },
+//           ],
+//           Appetizers: [
+//             {
+//               recipeName: "Pizza olio oglio",
+//               image: food1.src,
+//               recipeDescription:
+//                 "Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, est?",
+//               tags: ["#Easy", "#Spicy", "#Vegan"],
+//               complexity: "easy",
+//               servings: "2Person",
+//               nutriScore: "9.0",
+//             },
+//             {
+//               recipeName: "Pizza olio oglio",
+//               image: food1.src,
+//               recipeDescription:
+//                 "Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, est?",
+//               tags: ["#Easy", "#Spicy", "#Vegan"],
+//               complexity: "easy",
+//               servings: "2Person",
+//               nutriScore: "9.0",
+//             },
+//           ],
+//           Beverages: [
+//             {
+//               recipeName: "Pizza olio oglio",
+//               image: food1.src,
+//               recipeDescription:
+//                 "Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, est?",
+//               tags: ["#Easy", "#Spicy", "#Vegan"],
+//               complexity: "easy",
+//               servings: "2Person",
+//               nutriScore: "9.0",
+//             },
+//             {
+//               recipeName: "Pizza olio oglio",
+//               image: food1.src,
+//               recipeDescription:
+//                 "Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, est?",
+//               tags: ["#Easy", "#Spicy", "#Vegan"],
+//               complexity: "easy",
+//               servings: "2Person",
+//               nutriScore: "9.0",
+//             },
+//             {
+//               recipeName: "Pizza olio oglio",
+//               image: food1.src,
+//               recipeDescription:
+//                 "Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, est?",
+//               tags: ["#Easy", "#Spicy", "#Vegan"],
+//               complexity: "easy",
+//               servings: "2Person",
+//               nutriScore: "9.0",
+//             },
+//             {
+//               recipeName: "Pizza olio oglio",
+//               image: food1.src,
+//               recipeDescription:
+//                 "Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, est?",
+//               tags: ["#Easy", "#Spicy", "#Vegan"],
+//               complexity: "easy",
+//               servings: "2Person",
+//               nutriScore: "9.0",
+//             },
+//           ],
+//           SideDishes: [
+//             {
+//               recipeName: "Pizza olio oglio",
+//               image: food1.src,
+//               recipeDescription:
+//                 "Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, est?",
+//               tags: ["#Easy", "#Spicy", "#Vegan"],
+//               complexity: "easy",
+//               servings: "2Person",
+//               nutriScore: "9.0",
+//             },
+//             {
+//               recipeName: "Pizza olio oglio",
+//               image: food1.src,
+//               recipeDescription:
+//                 "Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, est?",
+//               tags: ["#Easy", "#Spicy", "#Vegan"],
+//               complexity: "easy",
+//               servings: "2Person",
+//               nutriScore: "9.0",
+//             },
+//             {
+//               recipeName: "Pizza olio oglio",
+//               image: food1.src,
+//               recipeDescription:
+//                 "Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, est?",
+//               tags: ["#Easy", "#Spicy", "#Vegan"],
+//               complexity: "easy",
+//               servings: "2Person",
+//               nutriScore: "9.0",
+//             },
+//           ],
+//         },
+//       },
+//     ],
+//     kitchenTools: [
+//       { toolsName: "knife kitchen", toolsImage: tools1.src },
+//       { toolsName: "knife", toolsImage: tools2.src },
+//       { toolsName: "knife", toolsImage: tools3.src },
+//       { toolsName: "knife", toolsImage: tools4.src },
+//       { toolsName: "knife", toolsImage: tools1.src },
+//       { toolsName: "knife", toolsImage: tools2.src },
+//     ],
+//     chefCards: [
+//       {
+//         chefImage: chef3.src,
+//       },
+//       {
+//         chefImage: chef2.src,
+//       },
+//       {
+//         chefImage: chef1.src,
+//       },
+//       {
+//         chefImage: chef4.src,
+//       },
+//       {
+//         chefImage: chef2.src,
+//       },
+//       {
+//         chefImage: chef1.src,
+//       },
+//     ],
+//   },
+// ];

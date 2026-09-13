@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { chefMainCard, chefMainCard2 } from "@/data";
+import { cards } from "@/data/data";
+import Card from "@/components/Card";
+import SectionTitle from "@/components/SectionTitle";
+// import { chefMainCard, chefMainCard2 } from "@/data";
 
 interface Props {
   recipeCategoryName?: string;
@@ -21,46 +24,17 @@ const WeeklyRecipes_vmhb: React.FC<Props> = ({
   };
   return (
     <div className="item-list">
-      <h2 className="text-slate-800 text-lg font-medium">Weekly Recipes</h2>
-      <div className=" pr-16 ">
-        {chefMainCard2[0].recipe.map((recipeCategory, index) => (
-          <div className="grid grid-cols-4 gap-4 px-10  pt-4 " key={index}>
-            {recipeCategory.category.WeeklyRecipes.slice(0, showCount).map(
-              (recipe, recipeIndex) => (
-                <div
-                  key={recipeIndex}
-                  className="rounded-xl shadow-md shadow-black"
-                >
-                  <img src={recipe.image} alt="" className="rounded-t-xl " />
-                  <div className="flex flex-col gap-2 pt-2 bg-slate-50 rounded-b-xl p-5">
-                    <div className="flex justify-center items-center">
-                      {recipe.recipeName}
-                    </div>
-                    <div className="flex justify-around items-center">
-                      <div>{recipe.difficulty}</div>
-                      <div>{recipe.servings}</div>
-                      <div>{recipe.nutriScore}</div>
-                    </div>
-                  </div>
-                </div>
-              )
-            )}
-          </div>
+      <h2 className="text-gray-800 text-2xl font-semibold mt-5 mb-3">
+        Weekly Recipes
+      </h2>
+
+      <ul className="flex flex-wrap justify-around items-center my-3">
+        {cards.slice(0, 5).map((card) => (
+          <li key={card.id}>
+            <Card data={card} size="medium" />
+          </li>
         ))}
-        <div className="px-10 pt-4 flex justify-end items-center gap-2">
-          {showCount > 4 && (
-            <Button onClick={toggleShowLess} className="text-white">
-              Show Less
-            </Button>
-          )}
-          {showCount <
-            chefMainCard2[0].recipe[0].category.WeeklyRecipes.length && (
-            <Button onClick={toggleShowMore} className="text-white">
-              Show More
-            </Button>
-          )}
-        </div>
-      </div>
+      </ul>
     </div>
   );
 };

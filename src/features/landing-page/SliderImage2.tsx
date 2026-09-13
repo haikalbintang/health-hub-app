@@ -7,6 +7,7 @@ import SectionTitle from "@/components/SectionTitle";
 import SectionDiv from "@/components/SectionDiv";
 import { useRouter } from "next/navigation";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 const CARD_WIDTH = 208; // w-52
 const GAP = 32; // gap-8
@@ -55,9 +56,9 @@ export default function SliderImage2() {
     setPageStart((prev) => Math.min(prev + itemsPerPage, maxPageStart));
   }
 
-  function handleSeeRecipe(id: number) {
-    router.push(`/recipe-detail/${id}`);
-  }
+  // function handleSeeRecipe(id: number) {
+  //   router.push(`/recipe-detail/${id}`);
+  // }
 
   return (
     <>
@@ -135,12 +136,15 @@ export default function SliderImage2() {
                         : "origin-center"
                   }`}
                 >
-                  <Card data={card} onSeeRecipe={handleSeeRecipe} />
+                  <Card data={card} />
                 </div>
               ))}
             </ul>
           </div>
         </div>
+      </div>
+      <div className="flex justify-center items-center">
+        <Button className="bg-red-500 text-xl font-bold">More Recipes</Button>
       </div>
     </>
   );

@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import clocksvg from "@/components/images/clock-lines-svgrepo-com.svg";
+import Link from "next/link";
 
 interface RecipeType {
   id: number;
@@ -29,12 +30,27 @@ const complexityStyles: Record<string, string> = {
   Hard: "bg-rose-500",
 };
 
+const sizeChart = {
+  big: {
+    width: "w-52",
+    height: "h-80",
+    picWidth: "208px",
+  },
+  medium: {
+    width: "w-48",
+    height: "h-[19rem]",
+    picWidth: "192px",
+  },
+};
+
 export default function Card({
   data,
   onSeeRecipe,
+  size = "big",
 }: {
   data: RecipeType;
-  onSeeRecipe: (id: number) => void;
+  onSeeRecipe?: (id: number) => void;
+  size?: "big" | "medium";
 }) {
   const {
     id,
@@ -52,40 +68,45 @@ export default function Card({
     color: "bg-gray-500",
   };
 
-  const [isLeaving, setIsLeaving] = useState(false);
+  // const [isLeaving, setIsLeaving] = useState(false);
+  let isLeaving;
 
-  const handleSeeRecipe = () => {
-    setIsLeaving(true);
-    window.setTimeout(() => onSeeRecipe(id), 350); // match the exit duration below
-  };
+  // const handleSeeRecipe = () => {
+  //   setIsLeaving(true);
+  //   window.setTimeout(() => onSeeRecipe(id), 350); // match the exit duration below
+  // };
 
   return (
     <li
       key={id}
-      className={`group/card relative w-52 h-80 overflow-hidden rounded-xl text-center transition-all duration-[350ms] ease-in ${
+      className={`group/card relative ${sizeChart[size].height} ${sizeChart[size].width} overflow-hidden rounded-xl text-center transition-all duration-[350ms] ease-in ${
         isLeaving ? "-translate-y-8 scale-95 opacity-0" : "sm:hover:scale-105"
       }`}
     >
       {/* Button strip — sits underneath, revealed as the image shrinks */}
       <div className="absolute flex-col inset-x-0 bottom-0 flex h-32 items-center justify-center rounded-b-xl bg-gradient-to-t from-gray-900 to-black">
         <p className="text-white text-xs mb-3">{description}</p>
-        <button
-          onClick={handleSeeRecipe}
-          className="rounded-full bg-white px-5 py-2 text-sm font-semibold text-slate-900 transition-transform duration-200 hover:scale-105 active:scale-95"
+        <Link
+          href={`/recipe-detail/${id}`}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="rounded-full bg-white px-5 py-2 text-sm font-semibold text-slate-900 transition-transform duration-200 hover:scale-105"
         >
           See Recipe
-        </button>
+        </Link>
       </div>
 
       {/* Image + content layer — shrinks from full card height (h-80) down to a
           square (h-52, same value as w-52) on hover/focus, so the square source
           image ends up displayed at its native aspect ratio with no cropping */}
-      <div className="absolute inset-x-0 top-0 h-80 overflow-hidden rounded-t-xl transition-[height] duration-300 ease-out sm:group-hover/card:h-52 sm:group-focus-within/card:h-52">
+      <div
+        className={`absolute inset-x-0 top-0 ${sizeChart[size].height} overflow-hidden rounded-t-xl transition-[height] duration-300 ease-out sm:group-hover/card:h-48`}
+      >
         <Image
           fill
           src={foodImage}
           alt={title}
-          sizes="208px"
+          sizes={sizeChart[size].picWidth}
           className="object-cover"
         />
 
@@ -98,12 +119,16 @@ export default function Card({
         )}
 
         {/* Title */}
-        <h3 className="absolute inset-x-3 bottom-14 z-10 text-center text-lg font-bold leading-tight text-white">
+        <h3
+          className={`absolute inset-x-3 bottom-14 z-10 text-center text-lg font-bold leading-tight text-white`}
+        >
           {title}
         </h3>
 
         {/* Footer badges */}
-        <div className="absolute inset-x-3 bottom-3 z-10 flex items-center justify-between">
+        <div
+          className={`absolute inset-x-3 z-10 bottom-3 flex items-center justify-between`}
+        >
           <span
             className={`${badgeColor} rounded-full px-2.5 py-1 text-xs font-medium text-white`}
           >
