@@ -8,7 +8,7 @@ import YouTube from "@/components/YouTube";
 import Instagram from "@/components/Instagram";
 import Facebook from "@/components/Facebook";
 import LoginModal from "@/features/navbar/LoginModal";
-import RegisterModal from "@/features/navbar/ModalRegister";
+import RegisterModal from "@/features/navbar/RegisterModal";
 import Navbar from "./Navbar";
 import { useAuthStore } from "@/store/useAuthStore";
 
