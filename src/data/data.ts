@@ -6,6 +6,12 @@ import food2 from "@/components/images/food2.jpg";
 import food3 from "@/components/images/food3.jpg";
 import food4 from "@/components/images/food4.jpg";
 
+import logo1 from "@/components/images/logo1.png";
+import logo2 from "@/components/images/logo2.png";
+import logo3 from "@/components/images/logo3.png";
+import logo4 from "@/components/images/logo4.png";
+import logo5 from "@/components/images/logo5.png";
+
 export const SIGN_IN_OPTIONS = [
   {
     id: 1,
@@ -155,5 +161,33 @@ export const cards = [
     nutriScore: 9.0,
     description:
       "lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, est?",
+  },
+];
+
+export const discoverContentMenus = [
+  {
+    id: 1,
+    title: "Fresh and Natural",
+    logo: logo1.src,
+  },
+  {
+    id: 2,
+    title: "Fresh and Natural",
+    logo: logo2.src,
+  },
+  {
+    id: 3,
+    title: "Fresh and Natural",
+    logo: logo3.src,
+  },
+  {
+    id: 4,
+    title: "Fresh and Natural",
+    logo: logo4.src,
+  },
+  {
+    id: 5,
+    title: "Fresh and Natural",
+    logo: logo5.src,
   },
 ];

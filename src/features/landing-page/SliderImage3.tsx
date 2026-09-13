@@ -1,6 +1,9 @@
 "use client";
 import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
+import SectionDiv from "@/components/SectionDiv";
+import SectionTitle from "@/components/SectionTitle";
+import Image from "next/image";
 
 interface ImageSliderProps {
   images: string[];
@@ -25,36 +28,35 @@ const SliderV3: React.FC<ImageSliderProps> = ({ images }) => {
   const nextIndex = middleIndex === images.length - 1 ? 0 : middleIndex + 1;
 
   return (
-    <div className="">
-      <div className="flex justify-center items-center px-6 pt-10 pb-4 text-xl gap-3 text-gray-700">
-        <h1>&mdash;&mdash;&mdash;&mdash;&mdash;</h1>
-        <h1 className="text-xl font-semibold text-gray-700 flex justify-center items-center text-center">
-          Our Ranges
-        </h1>
-        <h1>&mdash;&mdash;&mdash;&mdash;&mdash;</h1>
-      </div>
-      <h1 className="flex justify-center items-center text-3xl font-bold text-gray-800">
-        For All Your Desires
-      </h1>
+    <section>
+      <SectionDiv>Our Ranges</SectionDiv>
+      <SectionTitle>For All Your Desires </SectionTitle>
+
       <div className="flex justify-center items-center py-7">
-        <div className="grid grid-cols-4 grid-rows-4 gap-3 h-96 p-3">
-          <div className="col-span-2 row-span-4">
-            <img
-              className="object-cover w-full h-full rounded-xl"
+        <div className="grid grid-cols-2 grid-rows-2 gap-3 h-96 p-3">
+          <div className="col-span-1 row-span-2">
+            <Image
+              height={400}
+              width={600}
+              className="object-cover rounded-xl h-full"
               src={images[middleIndex]}
               alt=""
             />
           </div>
-          <div className="col-span-2 row-span-2">
-            <img
-              className="object-cover w-full h-full rounded-xl"
+          <div className="col-span-1 row-span-1">
+            <Image
+              height={200}
+              width={600}
+              className="object-cover rounded-xl h-full"
               src={images[previousIndex]}
               alt=""
             />
           </div>
-          <div className="col-span-2 row-span-2">
-            <img
-              className="object-cover w-full h-full rounded-xl"
+          <div className="col-span-1 row-span-1">
+            <Image
+              height={200}
+              width={600}
+              className="object-cover rounded-xl h-full "
               src={images[nextIndex]}
               alt=""
             />
@@ -69,7 +71,7 @@ const SliderV3: React.FC<ImageSliderProps> = ({ images }) => {
           {">"}
         </Button>
       </div>
-    </div>
+    </section>
   );
 };
 
