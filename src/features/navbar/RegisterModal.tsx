@@ -36,7 +36,7 @@ const RegisterModal = ({
 }: {
   setShowRegisterModal: SetToggleMenuType;
 }) => {
-  const [currentStep, setCurrentStep] = React.useState(2);
+  const [currentStep, setCurrentStep] = React.useState(0);
   const isLastStep = currentStep === steps.length - 1;
 
   const form = useForm<RegisterData>({
@@ -107,13 +107,15 @@ const RegisterModal = ({
           </button>
         </div>
 
+        <h1 className="text-2xl mb-10">Register New Account</h1>
+
         {/* Step indicator */}
         <div className="w-full max-w-sm mb-6">
-          <div className="flex items-center justify-between mb-2">
-            <span className="text-sm font-medium text-muted-foreground">
+          <div className="text-lg flex items-center justify-between mb-2">
+            <span className="font-medium text-muted-foreground">
               {steps[currentStep].label}
             </span>
-            <span className="text-sm text-muted-foreground">
+            <span className="text-base text-muted-foreground">
               {currentStep + 1} / {steps.length}
             </span>
           </div>

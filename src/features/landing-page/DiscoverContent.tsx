@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import SectionDiv from "@/components/SectionDiv";
 import SectionTitle from "@/components/SectionTitle";
 import { discoverContentMenus } from "@/data/data";
-import DiscoverContentMenu from "@/components/DiscoverContentMenu";
+import DiscoverContentMenu from "@/features/landing-page/DiscoverContentMenu";
 
 export default function DiscoverContent() {
   return (
