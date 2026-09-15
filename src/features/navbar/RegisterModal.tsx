@@ -18,15 +18,16 @@ import {
 } from "@/components/ui/form";
 
 import {
-  accountSchema,
+  accountBaseSchema,
   personalInfoSchema,
   securitySchema,
   RegisterData,
+  registerDataSchema,
 } from "./schema";
 
 // Order here MUST match the order steps are rendered below.
 const steps = [
-  { id: "account", label: "Account", schema: accountSchema },
+  { id: "account", label: "Account", schema: accountBaseSchema },
   { id: "personal", label: "Personal Info", schema: personalInfoSchema },
   { id: "security", label: "Security", schema: securitySchema },
 ] as const;
@@ -40,17 +41,17 @@ const RegisterModal = ({
   const isLastStep = currentStep === steps.length - 1;
 
   const form = useForm<RegisterData>({
-    resolver: zodResolver(steps[currentStep].schema),
+    resolver: zodResolver(registerDataSchema),
     mode: "onChange",
     defaultValues: {
       email: "",
       password: "",
-      confirmPassword: "",
+      confirm_password: "",
       username: "",
-      firstName: "",
-      lastName: "",
-      resetPasswordQuestion: "",
-      resetPasswordAnswer: "",
+      first_name: "",
+      last_name: "",
+      reset_password_question: "",
+      reset_password_answer: "",
     },
   });
 
@@ -62,9 +63,11 @@ const RegisterModal = ({
   } = form;
 
   const nextStep = async () => {
-    const fieldsToValidate = Object.keys(
-      steps[currentStep].schema.shape,
-    ) as Array<keyof RegisterData>;
+    const schema = steps[currentStep].schema;
+
+    const fieldsToValidate = Object.keys(schema.shape) as Array<
+      keyof RegisterData
+    >;
     const isStepValid = await trigger(fieldsToValidate);
     console.log(isStepValid);
 
@@ -80,8 +83,27 @@ const RegisterModal = ({
   };
 
   const onSubmit: SubmitHandler<RegisterData> = async (data) => {
-    console.log("Final Form Submitted Successfully Data:", data);
-    await new Promise((resolve) => setTimeout(resolve, 1000));
+    const { confirm_password, ...registrationData } = data;
+
+    try {
+      const res = await fetch("http://127.0.0.1:5000/users/register", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(registrationData),
+      });
+
+      const result = await res.json();
+      console.log(result);
+      if (!res.ok) {
+        console.error("Registration failed:", result.message);
+        return;
+      }
+
+      console.log("Registration successful:", result);
+      setShowRegisterModal(false);
+    } catch (err) {
+      console.error("Registration error:", err);
+    }
   };
 
   return (
@@ -169,7 +191,7 @@ const RegisterModal = ({
                 />
                 <FormField
                   control={control}
-                  name="confirmPassword"
+                  name="confirm_password"
                   render={({ field }) => (
                     <FormItem>
                       <FormLabel>Confirm Password</FormLabel>
@@ -201,7 +223,7 @@ const RegisterModal = ({
                 />
                 <FormField
                   control={control}
-                  name="firstName"
+                  name="first_name"
                   render={({ field }) => (
                     <FormItem>
                       <FormLabel>First Name</FormLabel>
@@ -214,7 +236,7 @@ const RegisterModal = ({
                 />
                 <FormField
                   control={control}
-                  name="lastName"
+                  name="last_name"
                   render={({ field }) => (
                     <FormItem>
                       <FormLabel>Last Name</FormLabel>
@@ -233,7 +255,7 @@ const RegisterModal = ({
               <div className="space-y-4">
                 <FormField
                   control={control}
-                  name="resetPasswordQuestion"
+                  name="reset_password_question"
                   render={({ field }) => (
                     <FormItem>
                       <FormLabel>Security Question</FormLabel>
@@ -249,7 +271,7 @@ const RegisterModal = ({
                 />
                 <FormField
                   control={control}
-                  name="resetPasswordAnswer"
+                  name="reset_password_answer"
                   render={({ field }) => (
                     <FormItem>
                       <FormLabel>Answer</FormLabel>
