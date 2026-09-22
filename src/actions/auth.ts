@@ -66,5 +66,16 @@ export async function logout(): Promise<void> {
 
 export async function isAuthenticated(): Promise<boolean> {
   const cookieStore = cookies();
-  return Boolean(cookieStore.get("access_token")?.value);
+  const accessToken = cookieStore.get("access_token")?.value;
+  if (!accessToken) return false;
+
+  // The token is signed with Flask's secret, which we don't have locally, so
+  // the backend is the only authority that can verify signature + expiry +
+  // revocation. Any authenticated endpoint returning ok means the token is valid.
+  const res = await fetch(`${API_BASE_URL}/users/profile`, {
+    headers: { Authorization: `Bearer ${accessToken}` },
+    cache: "no-store",
+  }).catch(() => null);
+
+  return res?.ok ?? false;
 }
