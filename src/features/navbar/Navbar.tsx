@@ -35,12 +35,13 @@ const Navbar = ({
           </li>
         ) : (
           <li>
-            <button
+            <Link
+              href={"/login"}
               className="cursor-pointer bg-gray-800 text-white px-4 pt-1 pb-2 rounded-xl hover:bg-gray-900"
-              onClick={() => setIsLoginModalShown(true)}
+              // onClick={() => setIsLoginModalShown(true)}
             >
               Sign In
-            </button>
+            </Link>
           </li>
         )}
       </ul>

@@ -13,15 +13,7 @@ import { SetToggleMenuType } from "@/types/type";
 import { useAuthStore } from "@/store/useAuthStore";
 import { login } from "@/actions/auth";
 
-const API_BASE_URL = "http://127.0.0.1:5000";
-
-export default function ModalLogin({
-  setShowLoginModal,
-  setShowRegisterModal,
-}: {
-  setShowLoginModal: SetToggleMenuType;
-  setShowRegisterModal: SetToggleMenuType;
-}) {
+const Page = () => {
   const [usernameOrEmail, setUsernameOrEmail] = useState("");
   const [password, setPassword] = useState("");
   const [rememberMe, setRememberMe] = useState(false);
@@ -43,17 +35,11 @@ export default function ModalLogin({
         setError(result.error);
       }
     });
-    setShowLoginModal(false);
-  }
-
-  function goToRegisterFromLogin() {
-    setShowLoginModal(false);
-    setShowRegisterModal(true);
   }
 
   return (
-    <Modal setShowModal={setShowLoginModal}>
-      <div className="w-1/2 flex flex-col justify-center items-center mx-auto p-6">
+    <main className="w-full grid grid-cols-2">
+      <div className="flex flex-col justify-center items-center mx-auto my-6 mr-4 px-6 border border-gray-500 rounded-xl">
         {/* Header */}
         <div className="justify-center p-5 pb-0">
           <h1 className="text-3xl font-bold text-gray-800">Welcome Back!</h1>
@@ -95,7 +81,7 @@ export default function ModalLogin({
               htmlFor="email"
               className="text-sm cursor-pointer text-gray-600 font-semibold"
             >
-              Email
+              Email or username
             </label>
             <div className="relative ">
               <input
@@ -105,7 +91,7 @@ export default function ModalLogin({
                 value={usernameOrEmail}
                 className="border border-gray-300 rounded-xl w-72 p-2 text-sm pl-9"
                 onChange={(e) => setUsernameOrEmail(e.target.value)}
-                placeholder="Enter your email"
+                placeholder="Enter your email or username"
                 required
               />
               <div className="absolute inset-y-0 left-0 pl-2 flex items-center pointer-events-none">
@@ -172,7 +158,6 @@ export default function ModalLogin({
 
             <Link
               href={"/forgot-password"}
-              onClick={() => setShowLoginModal(false)}
               className="cursor-pointer text-xs border-b-2 border-gray-700 hover:border-gray-800 text-gray-600 hover:text-gray-800"
             >
               Forgot Password?
@@ -192,35 +177,29 @@ export default function ModalLogin({
           <div className="mt-2">
             <p className="text-sm text-gray-700">
               Don&apos;t have an account? Sign up{" "}
-              <span
-                onClick={() => goToRegisterFromLogin()}
+              <Link
+                href={"/register"}
+                // onClick={() => goToRegisterFromLogin()}
                 className="text-red-500 hover:text-red-600 cursor-pointer hover:font-semibold"
               >
                 here
-              </span>
+              </Link>
             </p>
           </div>
         </ul>
-
-        <div className="absolute top-1 right-1">
-          <button
-            onClick={() => setShowLoginModal(false)}
-            type="button"
-            className="bg-transparent rounded-md m-3 inline-flex items-center justify-center text-gray-400 hover:text-gray-500"
-          >
-            <span className="sr-only">Close menu</span>
-            <Close />
-          </button>
-        </div>
       </div>
 
-      <Image
-        height={500}
-        width={500}
-        src={"/food3.jpg"}
-        alt=""
-        className="w-1/2 min-w-96 object-cover rounded-tr-xl rounded-br-xl"
-      />
-    </Modal>
+      <div className="my-auto mx-auto">
+        <Image
+          height={500}
+          width={500}
+          src={"/food3.jpg"}
+          alt=""
+          className="w-1/2 min-w-96 object-cover rounded-xl"
+        />
+      </div>
+    </main>
   );
-}
+};
+
+export default Page;
