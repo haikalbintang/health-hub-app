@@ -26,6 +26,8 @@ import {
 } from "@/features/navbar/schema";
 import { API_BASE_URL } from "@/utils/constant";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
+import Swal from "sweetalert2";
 
 // Order here MUST match the order steps are rendered below.
 const steps = [
@@ -37,6 +39,7 @@ const steps = [
 const RegisterModal = () => {
   const [currentStep, setCurrentStep] = React.useState(0);
   const isLastStep = currentStep === steps.length - 1;
+  const router = useRouter();
 
   const form = useForm<RegisterData>({
     resolver: zodResolver(registerDataSchema),
@@ -91,15 +94,28 @@ const RegisterModal = () => {
       });
 
       const result = await res.json();
-      console.log(result);
       if (!res.ok) {
-        console.error("Registration failed:", result.message);
+        await Swal.fire({
+          icon: "error",
+          title: "Registration Failed",
+          text: result.message || "Something went wrong. Please try again.",
+        });
         return;
       }
 
-      console.log("Registration successful:", result);
+      await Swal.fire({
+        icon: "success",
+        title: "Success",
+        text: "Account created successfully. Please login.",
+      });
+      router.push("/login");
     } catch (err) {
       console.error("Registration error:", err);
+      await Swal.fire({
+        icon: "error",
+        title: "Error",
+        text: "Failed to register. Please try again.",
+      });
     }
   };
 

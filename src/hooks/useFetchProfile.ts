@@ -1,26 +1,16 @@
+import { ProfileType } from "@/types/type";
 import api from "@/utils/api";
 import { useState, useEffect } from "react";
 
-interface Profile {
-  id: number;
-  email: string;
-  username: string;
-  first_name: string;
-  last_name: string;
-  location: string;
-  phone: string;
-  image: string;
-  role: string;
-  bio: string;
-}
-
 export default function useFetchProfile() {
-  const [profile, setProfile] = useState<Profile | null>(null);
+  const [profile, setProfile] = useState<ProfileType | null>(null);
   const [error, setError] = useState<string | null>(null);
 
   const fetchProfile = async () => {
+    console.log("fetching profile");
     try {
-      const response = await api.get<Profile>("/users/profile");
+      console.log("fetching profile try");
+      const response = await api.get<ProfileType>("/users/profile");
       console.log("response", response);
       setProfile(response.data);
       setError(null);
