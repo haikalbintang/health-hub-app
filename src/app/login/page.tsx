@@ -1,39 +1,44 @@
 "use client";
 import React, { useState, useTransition } from "react";
-import axios from "axios";
 import { Button } from "@/components/ui/button";
 import emailLogo from "@/components/images/email.svg";
 import passwordLogo from "@/components/images/passwordLogo.svg";
-import Modal from "@/features/navbar/Modal";
 import Image from "next/image";
-import Close from "@/components/Close";
 import { SIGN_IN_OPTIONS } from "@/data/data";
 import Link from "next/link";
-import { SetToggleMenuType } from "@/types/type";
+import { useRouter } from "next/navigation";
 import { useAuthStore } from "@/store/useAuthStore";
 import { login } from "@/actions/auth";
 
 const Page = () => {
+  const router = useRouter();
   const [usernameOrEmail, setUsernameOrEmail] = useState("");
   const [password, setPassword] = useState("");
   const [rememberMe, setRememberMe] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [isPending, startTransition] = useTransition();
-  // const login = useAuthStore((state) => state.login);
+  const setLoggedIn = useAuthStore((state) => state.login);
 
-  function handleLogin() {
+  function handleLogin(e?: React.FormEvent) {
+    e?.preventDefault();
     setError(null);
 
     const formData = new FormData();
 
     formData.append("username_or_email", usernameOrEmail);
     formData.append("password", password);
-    // login();
+
     startTransition(async () => {
-      const result = await login(formData);
+      const result = await login(formData, rememberMe);
+
       if (result?.error) {
         setError(result.error);
+        return;
       }
+
+      setLoggedIn();
+      router.push("/profile");
+      router.refresh();
     });
   }
 
@@ -145,7 +150,7 @@ const Page = () => {
                 id="remember"
                 className="cursor-pointer"
                 checked={rememberMe}
-                onClick={() => setRememberMe((p) => !p)}
+                onChange={(e) => setRememberMe(e.target.checked)}
               />
               <label
                 htmlFor="remember"
@@ -165,13 +170,19 @@ const Page = () => {
           </div>
 
           {/* Login Button */}
+          {error && (
+            <p className="text-sm text-red-600 mt-4 bg-red-50 border border-red-200 rounded-lg px-3 py-2">
+              {error}
+            </p>
+          )}
           <Button
             className="w-72 bg-red-500 hover:bg-red-600 mt-4"
             type="submit"
             value={"Login"}
             onClick={handleLogin}
+            disabled={isPending}
           >
-            <p className="text-base">Login</p>
+            <p className="text-base">{isPending ? "Signing in..." : "Login"}</p>
           </Button>
 
           <div className="mt-2">
@@ -189,13 +200,13 @@ const Page = () => {
         </ul>
       </div>
 
-      <div className="my-auto mx-auto">
+      <div className="py-6 px-4">
         <Image
-          height={500}
-          width={500}
+          height={440}
+          width={440}
           src={"/food3.jpg"}
           alt=""
-          className="w-1/2 min-w-96 object-cover rounded-xl"
+          className="object-fill rounded-xl ml-0 mr-auto"
         />
       </div>
     </main>

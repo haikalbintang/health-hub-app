@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import useFetchRecipe from "@/hooks/UseFetchRecipe";
 import useFetchProfile from "@/hooks/useFetchProfile";
-import axios from "axios";
+import api from "@/utils/api";
 // import ComplexityLogo from "@/components/images/svg/levels-svgrepo-com.svg";
 // import NutriLogo from "@/components/images/svg/cardlogo/scoreboard-svgrepo-com.svg";
 // import ServingLoo from "@/components/images/svg/cardlogo/cover-dish-svgrepo-com.svg";
@@ -21,15 +21,8 @@ const MyRecipe: React.FC = () => {
   }, [profile]);
 
   const fetchRecipeByUserLogin = async () => {
-    const authToken = localStorage.getItem("access_token");
     try {
-      const headers = {
-        Authorization: `Bearer ${authToken}`,
-      };
-      const response = await axios.get(
-        `http://127.0.0.1:5000/feeds/recipes/all`,
-        { headers },
-      );
+      const response = await api.get(`/feeds/recipes/all`);
       const filteredRecipes = response.data.filter(
         (recipe: any) => recipe.author_id === profile?.id,
       );

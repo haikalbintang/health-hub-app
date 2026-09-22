@@ -1,5 +1,5 @@
-import axios from "axios";
-import { useEffect, useState } from "react";
+import api from "@/utils/api";
+import { useState } from "react";
 
 interface Security {
   password: string;
@@ -10,26 +10,19 @@ interface Security {
 
 export default function useEditSecurity() {
   const [loading, setLoading] = useState(false);
-  const [editError, setEditError] = useState(null);
+  const [editError, setEditError] = useState<string | null>(null);
   const [securityData, setSecurityData] = useState<Security | null>(null);
 
   const editSecurity = async (updatedSecurity: Security) => {
-    const authToken = localStorage.getItem("access_token");
-    if (authToken) {
-      try {
-        setLoading(true);
-        const headers = {
-          Authorization: `Bearer ${authToken}`,
-        };
-        await axios.put(
-          "http://127.0.0.1:5000/users/reset-password",
-          updatedSecurity,
-          { headers }
-        );
-        setLoading(false);
-      } catch (error) {
-        console.error(error);
-      }
+    try {
+      setLoading(true);
+      setEditError(null);
+      await api.put("/users/reset-password", updatedSecurity);
+    } catch (error) {
+      setEditError("Failed to update security settings. Please try again.");
+      console.error(error);
+    } finally {
+      setLoading(false);
     }
   };
 

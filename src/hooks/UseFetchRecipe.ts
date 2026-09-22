@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
+import api from "@/utils/api";
 
 export interface Recipe {
   title: string;
@@ -25,9 +25,7 @@ export default function useFetchRecipe() {
 
   const fetchRecipes = async () => {
     try {
-      const response = await axios.get(
-        "http://127.0.0.1:5000/feeds/recipes/all"
-      );
+      const response = await api.get<Recipe[]>("/feeds/recipes/all");
       console.log("tes", response);
       setRecipes(response.data);
     } catch (error) {

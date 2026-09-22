@@ -1,11 +1,7 @@
 import { useState, ChangeEvent } from "react";
 import supabase from "../supabase/supabase";
 import useFetchProfile from "../hooks/useFetchProfile";
-import axios from "axios";
-
-interface Profile {
-  image: string;
-}
+import api from "../utils/api";
 
 const useUploadRecipeImage = () => {
   const [file, setFile] = useState<File | null>(null);
@@ -13,20 +9,10 @@ const useUploadRecipeImage = () => {
   const { profile, refetchProfile } = useFetchProfile();
 
   const fetchUserImage = async (updatedImage: string) => {
-    const authToken = localStorage.getItem("access_token");
-    if (authToken) {
-      try {
-        const headers = {
-          Authorization: `Bearer ${authToken}`,
-        };
-        const response = await axios.post(
-          "http://127.0.0.1:5000/recipes/create",
-          { attachment: updatedImage },
-          { headers },
-        );
-      } catch (error) {
-        console.error("Error fetching profile:", error);
-      }
+    try {
+      await api.post("/recipes/create", { attachment: updatedImage });
+    } catch (error) {
+      console.error("Error updating recipe image:", error);
     }
   };
 
@@ -43,9 +29,10 @@ const useUploadRecipeImage = () => {
 
       const pathInStorage = `images/recipes/${profile.username}/${fileName}`;
       try {
-        const { data: uploadData, error: uploadError } = await supabase.storage
-          .from("recipe_image")
-          .upload(pathInStorage, file);
+        const { data: uploadData, error: uploadError } =
+          await supabase.storage
+            .from("recipe_image")
+            .upload(pathInStorage, file);
 
         if (uploadError) {
           console.error("Error uploading file:", uploadError.message);
@@ -55,9 +42,6 @@ const useUploadRecipeImage = () => {
           ? `https://lwgscyxqeipmjzaxphkv.supabase.co/storage/v1/object/public/recipe_image/${uploadData?.path}`
           : null;
         setImageUrl(imageUrl);
-        // const imageUrl =
-        //   `https://lwgscyxqeipmjzaxphkv.supabase.co/storage/v1/object/public/recipe_image/${uploadData?.path} ` ??
-        //   "";
         if (!imageUrl) {
           return console.error("not the right link");
         }

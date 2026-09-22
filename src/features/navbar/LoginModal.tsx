@@ -1,6 +1,5 @@
 "use client";
 import React, { useState, useTransition } from "react";
-import axios from "axios";
 import { Button } from "@/components/ui/button";
 import emailLogo from "@/components/images/email.svg";
 import passwordLogo from "@/components/images/passwordLogo.svg";
@@ -12,8 +11,7 @@ import Link from "next/link";
 import { SetToggleMenuType } from "@/types/type";
 import { useAuthStore } from "@/store/useAuthStore";
 import { login } from "@/actions/auth";
-
-const API_BASE_URL = "http://127.0.0.1:5000";
+import { useRouter } from "next/navigation";
 
 export default function ModalLogin({
   setShowLoginModal,
@@ -22,12 +20,13 @@ export default function ModalLogin({
   setShowLoginModal: SetToggleMenuType;
   setShowRegisterModal: SetToggleMenuType;
 }) {
+  const router = useRouter();
   const [usernameOrEmail, setUsernameOrEmail] = useState("");
   const [password, setPassword] = useState("");
   const [rememberMe, setRememberMe] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [isPending, startTransition] = useTransition();
-  // const login = useAuthStore((state) => state.login);
+  const setLoggedIn = useAuthStore((state) => state.login);
 
   function handleLogin() {
     setError(null);
@@ -36,14 +35,20 @@ export default function ModalLogin({
 
     formData.append("username_or_email", usernameOrEmail);
     formData.append("password", password);
-    // login();
+
     startTransition(async () => {
-      const result = await login(formData);
+      const result = await login(formData, rememberMe);
+
       if (result?.error) {
         setError(result.error);
+        return;
       }
+
+      setLoggedIn();
+      setShowLoginModal(false);
+      router.push("/profile");
+      router.refresh();
     });
-    setShowLoginModal(false);
   }
 
   function goToRegisterFromLogin() {
@@ -159,7 +164,7 @@ export default function ModalLogin({
                 id="remember"
                 className="cursor-pointer"
                 checked={rememberMe}
-                onClick={() => setRememberMe((p) => !p)}
+                onChange={(e) => setRememberMe(e.target.checked)}
               />
               <label
                 htmlFor="remember"
@@ -180,13 +185,19 @@ export default function ModalLogin({
           </div>
 
           {/* Login Button */}
+          {error && (
+            <p className="text-sm text-red-600 bg-red-50 border border-red-200 rounded-lg px-3 py-2">
+              {error}
+            </p>
+          )}
           <Button
             className="w-72 bg-red-500 hover:bg-red-600 mt-4"
             type="submit"
             value={"Login"}
             onClick={handleLogin}
+            disabled={isPending}
           >
-            <p className="text-base">Login</p>
+            <p className="text-base">{isPending ? "Signing in..." : "Login"}</p>
           </Button>
 
           <div className="mt-2">

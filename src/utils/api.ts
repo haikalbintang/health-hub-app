@@ -1,27 +1,23 @@
-import axios from "axios";
+import axios, { AxiosError } from "axios";
 
+export { API_BASE_URL } from "./constant";
+
+// All requests go through the Next.js proxy (/api/*), which attaches the
+// httpOnly access token server-side. The token is never exposed to the browser.
 const api = axios.create({
-  baseURL: "http://127.0.0.1:5000",
+  baseURL: "/api",
   headers: {
     "Content-Type": "application/json",
   },
+  timeout: 15000,
 });
 
-// Interceptor to automatically add the token to requests
-api.interceptors.request.use(
-  (config) => {
-    // Check if we are running in the browser
-    if (typeof window !== "undefined") {
-      const token = localStorage.getItem("token");
-      if (token) {
-        config.headers.Authorization = `Bearer ${token}`;
-      }
-    }
-    return config;
-  },
-  (error) => {
-    return Promise.reject(error);
-  },
-);
+export function getApiErrorMessage(error: unknown, fallback: string): string {
+  if (axios.isAxiosError(error)) {
+    const axiosError = error as AxiosError<{ message?: string }>;
+    return axiosError.response?.data?.message ?? fallback;
+  }
+  return fallback;
+}
 
 export default api;

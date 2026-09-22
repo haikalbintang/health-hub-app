@@ -5,6 +5,7 @@ import Modal from "@/features/navbar/Modal";
 import { SetToggleMenuType } from "@/types/type";
 import Close from "@/components/Close";
 import Image from "next/image";
+import { API_BASE_URL } from "@/utils/constant";
 
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -86,7 +87,7 @@ const RegisterModal = ({
     const { confirm_password, ...registrationData } = data;
 
     try {
-      const res = await fetch("http://127.0.0.1:5000/users/register", {
+      const res = await fetch(`${API_BASE_URL}/users/register`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(registrationData),

@@ -1,5 +1,5 @@
-import axios from "axios";
-import { useEffect, useState } from "react";
+import api from "@/utils/api";
+import { useState } from "react";
 
 interface Profile {
   first_name: string;
@@ -11,26 +11,18 @@ interface Profile {
 
 export default function useEditProfile() {
   const [loading, setLoading] = useState(false);
-  const [editError, setEditError] = useState(null);
+  const [editError, setEditError] = useState<string | null>(null);
 
   const editProfile = async (updatedProfile: Profile) => {
-    const authToken = localStorage.getItem("access_token");
-    if (authToken) {
-      try {
-        setLoading(true);
-        const headers = {
-          Authorization: `Bearer ${authToken}`,
-        };
-        await axios.put(
-          "http://127.0.0.1:5000/users/update-info",
-          updatedProfile,
-          { headers }
-        );
-        setLoading(false);
-      } catch (error) {
-        console.error(error);
-        setLoading(false);
-      }
+    try {
+      setLoading(true);
+      setEditError(null);
+      await api.put("/users/update-info", updatedProfile);
+    } catch (error) {
+      setEditError("Failed to update profile. Please try again.");
+      console.error(error);
+    } finally {
+      setLoading(false);
     }
   };
 

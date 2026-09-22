@@ -1,4 +1,4 @@
-import axios from "axios";
+import api from "@/utils/api";
 import { useState, useEffect } from "react";
 
 interface Profile {
@@ -19,22 +19,14 @@ export default function useFetchProfile() {
   const [error, setError] = useState<string | null>(null);
 
   const fetchProfile = async () => {
-    const authToken = localStorage.getItem("access_token");
-    if (authToken) {
-      try {
-        const headers = {
-          Authorization: `Bearer ${authToken}`,
-        };
-        const response = await axios.get(
-          "http://127.0.0.1:5000/users/profile",
-          { headers }
-        );
-        console.log("response", response);
-        setProfile(response.data);
-      } catch (error) {
-        console.error("Error fetching profile:", error);
-        setError("Failed to fetch profile. Please try again.");
-      }
+    try {
+      const response = await api.get<Profile>("/users/profile");
+      console.log("response", response);
+      setProfile(response.data);
+      setError(null);
+    } catch (error) {
+      console.error("Error fetching profile:", error);
+      setError("Failed to fetch profile. Please try again.");
     }
   };
 

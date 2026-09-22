@@ -24,6 +24,7 @@ import {
   RegisterData,
   registerDataSchema,
 } from "@/features/navbar/schema";
+import { API_BASE_URL } from "@/utils/constant";
 import Link from "next/link";
 
 // Order here MUST match the order steps are rendered below.
@@ -83,7 +84,7 @@ const RegisterModal = () => {
     const { confirm_password, ...registrationData } = data;
 
     try {
-      const res = await fetch("http://127.0.0.1:5000/users/register", {
+      const res = await fetch(`${API_BASE_URL}/users/register`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(registrationData),

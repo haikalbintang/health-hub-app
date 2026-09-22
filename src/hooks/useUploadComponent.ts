@@ -1,11 +1,7 @@
 import { useState, ChangeEvent } from "react";
 import supabase from "@/supabase/supabase";
 import useFetchProfile from "@/hooks/useFetchProfile";
-import axios from "axios";
-
-interface Profile {
-  image: string;
-}
+import api from "@/utils/api";
 
 const useUploadComponent = () => {
   const [file, setFile] = useState<File | null>(null);
@@ -14,23 +10,12 @@ const useUploadComponent = () => {
   const [changeImage, setChangeImage] = useState<boolean>(false);
 
   const fetchUserImage = async (updatedImage: string) => {
-    const authToken = localStorage.getItem("access_token");
-    if (authToken) {
-      try {
-        const headers = {
-          Authorization: `Bearer ${authToken}`,
-        };
-        const response = await axios.put(
-          "http://127.0.0.1:5000/users/update-image",
-          { image: updatedImage },
-          { headers },
-        );
-
-        setChangeImage(true);
-      } catch (error) {
-        console.error("Error fetching profile:", error);
-        setChangeImage(false);
-      }
+    try {
+      await api.put("/users/update-image", { image: updatedImage });
+      setChangeImage(true);
+    } catch (error) {
+      console.error("Error updating profile image:", error);
+      setChangeImage(false);
     }
   };
 
