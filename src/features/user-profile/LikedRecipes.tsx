@@ -3,11 +3,11 @@ import { Button } from "@/components/ui/button";
 import useFetch from "@/hooks/useFetch";
 import { RecipeDetailType } from "@/types/type";
 
-const MyRecipe: React.FC = () => {
+const LikedRecipes: React.FC = () => {
   const [showCount, setShowCount] = useState(4);
   const [searchQuery, setSearchQuery] = useState("");
   const { data: recipes } =
-    useFetch<RecipeDetailType[]>("/collection/recipes/self-created");
+    useFetch<RecipeDetailType[]>("/collection/recipes/liked");
 
   const filteredRecipes = (recipes ?? []).filter((recipe) =>
     recipe.title.toLowerCase().includes(searchQuery.toLowerCase()),
@@ -28,7 +28,7 @@ const MyRecipe: React.FC = () => {
   return (
     <div>
       <div className="flex justify-between items-center">
-        <h1 className="text-2xl font-bold">My Recipes</h1>
+        <h1 className="text-2xl font-bold">Liked Recipes</h1>
         <input
           type="search"
           className="border-2 border-slate-400 rounded-lg p-3"
@@ -82,4 +82,4 @@ const MyRecipe: React.FC = () => {
   );
 };
 
-export default MyRecipe;
+export default LikedRecipes;

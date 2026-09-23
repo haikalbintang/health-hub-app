@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import MyProfile from "@/features/user-profile/MyProfile";
 import MyRecipe from "@/features/user-profile/MyRecipe";
+import LikedRecipes from "@/features/user-profile/LikedRecipes";
 import Security from "@/features/user-profile/Security";
 import CreateRecipe from "@/features/user-profile/CreateRecipe";
 import Logout from "@/features/user-profile/Logout";
@@ -11,6 +12,7 @@ import SectionTitle from "@/components/SectionTitle";
 const categories = [
   "Profile",
   "My Recipe",
+  "Liked Recipes",
   "Create Recipe",
   "Security",
   "Logout",
@@ -48,7 +50,8 @@ const MyProfilePage = () => {
 
         <div className="w-3/5 p-5 mx-auto">
           {selectedMenu === "Profile" && <MyProfile />}
-          {selectedMenu === "My Recipe" && <MyRecipe />}
+          {selectedMenu === "My Recipes" && <MyRecipe />}
+          {selectedMenu === "Liked Recipes" && <LikedRecipes />}
           {selectedMenu === "Create Recipe" && <CreateRecipe />}
           {selectedMenu === "Security" && <Security />}
           {selectedMenu === "Logout" && <Logout />}
