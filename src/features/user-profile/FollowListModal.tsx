@@ -25,6 +25,21 @@ interface FollowUser {
   updated_at: string;
 }
 
+function normalizeUsers(data: unknown): FollowUser[] {
+  if (Array.isArray(data)) return data as FollowUser[];
+  if (data && typeof data === "object") {
+    const obj = data as Record<string, unknown>;
+    if (typeof obj.id !== "undefined" && typeof obj.username === "string") {
+      return [obj as unknown as FollowUser];
+    }
+    const candidates = ["data", "users", "followers", "following"];
+    for (const key of candidates) {
+      if (Array.isArray(obj[key])) return obj[key] as FollowUser[];
+    }
+  }
+  return [];
+}
+
 export default function FollowListModal({
   title,
   endpoint,
@@ -46,7 +61,7 @@ export default function FollowListModal({
     api
       .get<FollowUser[]>(endpoint)
       .then((response) => {
-        if (!cancelled) setUsers(response.data);
+        if (!cancelled) setUsers(normalizeUsers(response.data));
       })
       .catch((err) => {
         if (!cancelled)

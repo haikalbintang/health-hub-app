@@ -29,11 +29,11 @@ const MyProfilePage = () => {
     <div className="mt-4">
       <SectionTitle>Profile</SectionTitle>
       <div className="flex py-5 mt-0">
-        <aside className="w-36 flex flex-col justify-start items-start p-4 bg-orange-100 rounded-xl gap-2 lg:gap-4 h-fit">
+        <aside className="w-44 flex flex-col justify-start items-start p-2 bg-orange-100 rounded-xl gap-2 lg:gap-2 h-fit">
           {categories.map((category) => (
             <div
               key={category}
-              className={`flex w-full rounded-lg gap-3 justify-start items-center p-2 pr-0 cursor-pointer hover:bg-orange-200 ${
+              className={`flex w-full rounded-lg gap-3 justify-start items-center py-2 px-4 cursor-pointer hover:bg-orange-200 ${
                 selectedMenu === category
                   ? "bg-orange-200 font-semibold text-gray-900"
                   : "text-gray-700"
@@ -48,7 +48,7 @@ const MyProfilePage = () => {
           ))}
         </aside>
 
-        <div className="w-3/5 p-5 mx-auto">
+        <div className="mx-auto">
           {selectedMenu === "Profile" && <MyProfile />}
           {selectedMenu === "My Recipes" && <MyRecipe />}
           {selectedMenu === "Liked Recipes" && <LikedRecipes />}

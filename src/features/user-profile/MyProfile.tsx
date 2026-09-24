@@ -20,8 +20,12 @@ import {
 } from "lucide-react";
 
 const MyProfile: React.FC = () => {
-  const { data: profile, error, isLoading, refetch } =
-    useFetch<ProfileType>("/users/profile");
+  const {
+    data: profile,
+    error,
+    isLoading,
+    refetch,
+  } = useFetch<ProfileType>("/users/profile");
   const { loading, editError, editProfile } = useEditProfile();
   const { imageUrl, handleFileChange, handleUpload } = useUploadComponent();
 
@@ -98,7 +102,7 @@ const MyProfile: React.FC = () => {
   return (
     <div className="flex flex-col gap-6">
       {/* Profile hero */}
-      <div className="rounded-2xl bg-orange-300 px-8 py-8 shadow-lg">
+      <div className="rounded-2xl bg-orange-200 px-8 py-8">
         <div className="flex flex-col items-center gap-6 sm:flex-row sm:justify-center">
           <div className="flex flex-col items-center gap-4">
             <img
@@ -120,16 +124,16 @@ const MyProfile: React.FC = () => {
           </div>
 
           <div className="text-center sm:text-left">
-            <h2 className="text-2xl font-bold text-white">
+            <h2 className="text-2xl font-bold text-gray-800">
               {profile.first_name} {profile.last_name}
             </h2>
-            <p className="mt-1 text-sm text-white/80">@{profile.username}</p>
+            <p className="mt-1 text-sm text-gray-800/80">@{profile.username}</p>
             <div className="mt-2 flex flex-wrap items-center justify-center gap-2 sm:justify-start">
-              <span className="rounded-full bg-white/20 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-white">
+              <span className="rounded-full bg-white/50 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-gray-800">
                 {profile.role}
               </span>
               {profile.location && (
-                <span className="flex items-center gap-1 text-sm text-white/80">
+                <span className="flex items-center gap-1 text-sm text-gray-800/80">
                   <MapPin size={14} />
                   {profile.location}
                 </span>
@@ -139,7 +143,7 @@ const MyProfile: React.FC = () => {
         </div>
 
         {/* Stats */}
-        <div className="mt-6 grid grid-cols-3 gap-3 rounded-xl bg-white/20 p-4">
+        <div className="mt-6 grid grid-cols-3 gap-3 rounded-xl bg-white/50 p-2">
           <button
             type="button"
             onClick={() =>
@@ -148,13 +152,13 @@ const MyProfile: React.FC = () => {
                 endpoint: "/collection/list/followed-users",
               })
             }
-            className="flex flex-col items-center gap-1 rounded-lg transition hover:bg-white/10"
+            className="flex flex-col items-center gap-1 rounded-lg transition hover:bg-white/40 p-2"
           >
-            <UserPlus size={18} className="text-white" />
-            <span className="text-lg font-bold text-white">
+            <UserPlus size={18} className="text-gray-800" />
+            <span className="text-lg font-bold text-gray-800">
               {profile.total_following}
             </span>
-            <span className="text-xs font-medium uppercase tracking-wide text-white/80">
+            <span className="text-xs font-medium uppercase tracking-wide text-gray-800/80">
               Following
             </span>
           </button>
@@ -166,22 +170,22 @@ const MyProfile: React.FC = () => {
                 endpoint: "/collection/list/user-followers",
               })
             }
-            className="flex flex-col items-center gap-1 rounded-lg transition hover:bg-white/10"
+            className="flex flex-col items-center gap-1 rounded-lg transition hover:bg-white/40 p-2"
           >
-            <Users size={18} className="text-white" />
-            <span className="text-lg font-bold text-white">
-              {profile.total_followers}
+            <Users size={18} className="text-gray-800" />
+            <span className="text-lg font-bold text-gray-800">
+              {profile.total_followers || 0}
             </span>
-            <span className="text-xs font-medium uppercase tracking-wide text-white/80">
+            <span className="text-xs font-medium uppercase tracking-wide text-gray-800/80">
               Followers
             </span>
           </button>
-          <div className="flex flex-col items-center gap-1">
-            <Eye size={18} className="text-white" />
-            <span className="text-lg font-bold text-white">
+          <div className="flex flex-col items-center gap-1 p-2">
+            <Eye size={18} className="text-gray-800" />
+            <span className="text-lg font-bold text-gray-800">
               {profile.view_count}
             </span>
-            <span className="text-xs font-medium uppercase tracking-wide text-white/80">
+            <span className="text-xs font-medium uppercase tracking-wide text-gray-800/80">
               Views
             </span>
           </div>
@@ -189,8 +193,8 @@ const MyProfile: React.FC = () => {
       </div>
 
       {/* Bio */}
-      <div className="rounded-2xl border border-orange-100 bg-white px-8 py-6 shadow-lg">
-        <h2 className="flex items-center gap-3 text-lg font-semibold text-gray-800">
+      <div className="rounded-2xl text-center border border-orange-100 bg-white px-8 py-6 shadow-sm">
+        <h2 className="flex justify-center items-center gap-3 text-lg font-semibold text-gray-800">
           <span className="tracking-tight text-orange-300 hidden sm:inline">
             &mdash;&mdash;&mdash;
           </span>
@@ -215,7 +219,7 @@ const MyProfile: React.FC = () => {
       </div>
 
       {/* Personal information */}
-      <div className="rounded-2xl border border-orange-100 bg-white px-8 py-6 shadow-lg">
+      <div className="rounded-2xl border border-orange-100 bg-white px-8 py-6 shadow-sm">
         <div className="flex flex-wrap items-center justify-between gap-4 border-b border-orange-100 pb-4">
           <h2 className="flex items-center gap-3 text-lg font-semibold text-gray-800">
             <span className="tracking-tight text-orange-300 hidden sm:inline">
@@ -346,7 +350,7 @@ const MyProfile: React.FC = () => {
       </div>
 
       {/* Social links */}
-      <div className="rounded-2xl border border-orange-100 bg-white px-8 py-6 shadow-lg">
+      <div className="rounded-2xl border border-orange-100 bg-white px-8 py-6 shadow-sm">
         <h2 className="flex items-center gap-3 text-lg font-semibold text-gray-800">
           <span className="tracking-tight text-orange-300 hidden sm:inline">
             &mdash;&mdash;&mdash;
