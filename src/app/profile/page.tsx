@@ -37,7 +37,7 @@ const MyProfilePage = () => {
     <div className="mt-4">
       <SectionTitle>Profile</SectionTitle>
       <div className="flex py-5 mt-0">
-        <aside className="w-44 shrink-0 flex flex-col justify-start items-start p-2 bg-orange-100 rounded-xl gap-2 lg:gap-2 h-fit">
+        <aside className="w-48 shrink-0 flex flex-col justify-start items-start p-3 bg-orange-100 rounded-xl gap-2 lg:gap-3 h-fit">
           {categories.map(({ label, icon: Icon }) => (
             <div
               key={label}
