@@ -44,7 +44,7 @@ const Page = () => {
 
   return (
     <main className="w-full grid grid-cols-2">
-      <div className="flex flex-col justify-center items-center mx-auto my-6 mr-4 px-6 border border-gray-500 rounded-xl">
+      <div className="flex flex-col justify-center items-center mx-auto my-6 mr-4 px-6 bg-orange-100 rounded-xl">
         {/* Header */}
         <div className="justify-center p-5 pb-0">
           <h1 className="text-3xl font-bold text-gray-800">Welcome Back!</h1>

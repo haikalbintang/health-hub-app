@@ -131,7 +131,7 @@ const RegisterModal = () => {
         />
       </div>
 
-      <div className="m-6 ml-8 border border-gray-500 rounded-xl w-1/2 flex min-w-96 flex-col justify-center items-center mx-auto p-11 relative">
+      <div className="m-6 ml-8 bg-orange-100 rounded-xl w-1/2 flex min-w-96 flex-col justify-center items-center mx-auto p-11 relative">
         <h1 className="text-2xl mb-10">Register New Account</h1>
 
         {/* Step indicator */}
