@@ -27,27 +27,27 @@ export default function Header() {
       <header className="pb-1">
         {/* Top Bar */}
         <div className="items-center justify-between px-28 flex gap-6 rounded-b-xl py-2 bg-orange-200">
-          <div className="flex gap-2">
+          <div className="flex gap-2 items-center">
             <Envelope />
             <div className="text-slate-800">
               have a question?{" "}
-              <span className="sm:hover:border-b-2 border-slate-800 cursor-pointer">
+              <span className="sm:hover:border-b-2 border-slate-800 cursor-pointer font-medium">
                 contact us
               </span>
             </div>
           </div>
 
-          <div className="flex justify-between gap-8">
-            <div className="flex border-b-2 border-slate-800 w-4844">
+          <div className="flex justify-between gap-14">
+            <div className="flex border-b-2 border-slate-800">
               <input
                 type="text"
                 placeholder="search here"
-                className="w-44 px-2 bg-transparent border-transparent border-none"
+                className="w-52 px-2 bg-transparent border-transparent border-none"
               />
               <MagnifyingTool />
             </div>
-            <ul className="flex justify-center items-center gap-3">
-              <li>
+            <ul className="flex justify-center items-center gap-2">
+              <li className="pr-1">
                 <YouTube />
               </li>
               <li>
