@@ -28,7 +28,7 @@ const MyProfilePage = () => {
   return (
     <div className="mt-4">
       <SectionTitle>Profile</SectionTitle>
-      <div className="flex items-center py-5 my-auto">
+      <div className="flex py-5 mt-0">
         <aside className="w-36 flex flex-col justify-start items-start p-4 bg-orange-100 rounded-xl gap-2 lg:gap-4 h-fit">
           {categories.map((category) => (
             <div
