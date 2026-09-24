@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
+import { ChefHat } from "lucide-react";
 import clocksvg from "@/components/images/clock-lines-svgrepo-com.svg";
 import Link from "next/link";
 
@@ -157,7 +158,8 @@ export default function Card({
       </span>
 
       {role === "chef" && (
-        <span className="absolute right-2 top-2 z-20 rounded-full bg-amber-400 px-2 py-0.5 text-[10px] font-semibold text-slate-900 shadow">
+        <span className="absolute right-2 top-2 z-20 flex items-center gap-1 rounded-full bg-amber-400 px-2 py-0.5 text-[10px] font-semibold text-slate-900 shadow">
+          <ChefHat size={12} strokeWidth={2.5} />
           Chef&apos;s pick
         </span>
       )}
