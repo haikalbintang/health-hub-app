@@ -11,6 +11,7 @@ import Ingredients from "@/features/recipe-detail/Ingredients";
 import Instructions from "@/features/recipe-detail/Instructions";
 import CommentSections from "@/features/recipe-detail/CommentSection";
 import SaveRecipeButton from "@/features/recipe-detail/SaveRecipeButton";
+import FollowButton from "@/features/recipe-detail/FollowButton";
 
 import { Button } from "@/components/ui/button";
 import Card from "@/components/Card";
@@ -139,9 +140,7 @@ export default async function RecipeDetailPage({
                 )}
               </div>
             </div>
-            <Button size="sm" className="bg-gray-900">
-              Follow
-            </Button>
+            <FollowButton authorId={recipe.author_id} />
           </div>
         </div>
       </div>

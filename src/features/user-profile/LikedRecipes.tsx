@@ -6,8 +6,9 @@ import { RecipeDetailType } from "@/types/type";
 const LikedRecipes: React.FC = () => {
   const [showCount, setShowCount] = useState(4);
   const [searchQuery, setSearchQuery] = useState("");
-  const { data: recipes } =
-    useFetch<RecipeDetailType[]>("/collection/recipes/liked");
+  const { data: recipes } = useFetch<RecipeDetailType[]>(
+    "/collection/recipes/liked",
+  );
 
   const filteredRecipes = (recipes ?? []).filter((recipe) =>
     recipe.title.toLowerCase().includes(searchQuery.toLowerCase()),
@@ -26,7 +27,7 @@ const LikedRecipes: React.FC = () => {
   };
 
   return (
-    <div>
+    <main className="flex flex-col">
       <div className="flex justify-between items-center">
         <h1 className="text-2xl font-bold">Liked Recipes</h1>
         <input
@@ -78,7 +79,7 @@ const LikedRecipes: React.FC = () => {
           )}
         </div>
       </div>
-    </div>
+    </main>
   );
 };
 
