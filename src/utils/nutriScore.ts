@@ -1,10 +1,12 @@
-const BADGE_COLORS = {
+export const BADGE_COLORS = {
   A: "bg-emerald-600",
   B: "bg-lime-500",
   C: "bg-amber-500",
   D: "bg-orange-500",
   E: "bg-rose-600",
 } as const;
+
+export const NUTRI_LETTERS = ["A", "B", "C", "D", "E"] as const;
 
 const LETTER_BY_SCORE = ["E", "D", "C", "B", "A"] as const;
 
