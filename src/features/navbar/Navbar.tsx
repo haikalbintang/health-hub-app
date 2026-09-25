@@ -14,7 +14,7 @@ const Navbar = ({
           <Link href="/feeds">Recipes</Link>
         </li>
         <li className="px-1">
-          <Link href="/products">People</Link>
+          <Link href="/users">People</Link>
         </li>
         <li className="pl-2">
           <div className="border-orange-200 border-4 p-2 pt-0 mt-2 rounded-xl">

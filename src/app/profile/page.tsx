@@ -19,8 +19,8 @@ import {
 
 const categories = [
   { label: "Profile", icon: User },
-  { label: "My Recipe", icon: Utensils },
-  { label: "Liked Recipes", icon: Heart },
+  { label: "Notifications", icon: Utensils },
+  { label: "Saved Recipes", icon: Heart },
   { label: "Create Recipe", icon: PlusCircle },
   { label: "Security", icon: ShieldCheck },
   { label: "Logout", icon: LogOut },
@@ -56,8 +56,8 @@ const MyProfilePage = () => {
 
         <div className="mx-auto">
           {selectedMenu === "Profile" && <MyProfile />}
-          {selectedMenu === "My Recipe" && <MyRecipe />}
-          {selectedMenu === "Liked Recipes" && <LikedRecipes />}
+          {selectedMenu === "Notifications" && <MyRecipe />}
+          {selectedMenu === "Saved Recipes" && <LikedRecipes />}
           {selectedMenu === "Create Recipe" && <CreateRecipe />}
           {selectedMenu === "Security" && <Security />}
           {selectedMenu === "Logout" && <Logout />}

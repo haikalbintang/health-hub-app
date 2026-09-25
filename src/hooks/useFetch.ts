@@ -1,8 +1,10 @@
+import axios from "axios";
 import api, { getApiErrorMessage } from "@/utils/api";
 import { useCallback, useEffect, useRef, useState } from "react";
 
 export interface UseFetchOptions {
   enabled?: boolean;
+  emptyOnNotFound?: boolean;
   params?: Record<string, string | number | boolean | undefined>;
 }
 
@@ -10,7 +12,7 @@ export default function useFetch<T>(
   endpoint: string | null,
   options: UseFetchOptions = {},
 ) {
-  const { enabled = true, params } = options;
+  const { enabled = true, emptyOnNotFound = false, params } = options;
 
   const [data, setData] = useState<T | null>(null);
   const [error, setError] = useState<string | null>(null);
@@ -31,14 +33,18 @@ export default function useFetch<T>(
       }
     } catch (err) {
       if (!cancelledRef.current) {
-        setError(getApiErrorMessage(err, "Failed to fetch data. Please try again."));
+        if (emptyOnNotFound && axios.isAxiosError(err) && err.response?.status === 404) {
+          setData([] as T);
+        } else {
+          setError(getApiErrorMessage(err, "Failed to fetch data. Please try again."));
+        }
       }
     } finally {
       if (!cancelledRef.current) {
         setIsLoading(false);
       }
     }
-  }, [endpoint, enabled, params]);
+  }, [endpoint, enabled, emptyOnNotFound, params]);
 
   const refetch = useCallback(async () => {
     await fetchData();
