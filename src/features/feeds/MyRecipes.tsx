@@ -32,9 +32,7 @@ const MyRecipes: React.FC<Props> = ({
 
   return (
     <div className="item-list">
-      <h2 className="text-gray-800 text-2xl font-semibold mt-5 mb-3">
-        My Recipe
-      </h2>
+      <h2 className="text-gray-800 text-2xl font-semibold mb-3">My Recipe</h2>
 
       <div className="flex justify-between items-center mb-4">
         <input
@@ -48,7 +46,7 @@ const MyRecipes: React.FC<Props> = ({
 
       {isLoading && <p className="text-gray-500">Loading recipes...</p>}
 
-      <ul className="flex flex-wrap justify-around items-center my-3">
+      <ul className="justify-around items-center my-3 grid grid-cols-5">
         {filteredRecipes.slice(0, showCount).map((recipe) => (
           <RecipeCard key={recipe.id} recipe={recipe} size="medium" />
         ))}

@@ -37,7 +37,7 @@ const Followed = () => {
 
   return (
     <>
-      <div className="flex items-center justify-between w-full">
+      {/* <div className="flex items-center justify-between w-full">
         <div className="flex flex-wrap gap-1 lg:gap-3 xl:gap-4 w-full">
           {categories.map((category) => (
             <Button
@@ -68,10 +68,10 @@ const Followed = () => {
             className="absolute right-2 top-2 "
           />
         </div>
-      </div>
+      </div> */}
       <div className="item-list">
-        <h2 className="text-gray-800 text-2xl font-semibold mt-5 mb-3">
-          All Recipes
+        <h2 className="text-gray-800 text-2xl font-semibold mb-3">
+          Weekly Recipes
         </h2>
 
         <input

@@ -120,16 +120,10 @@ export default function RecipeDetail() {
       {/* Ingredients (sticky) + Instructions */}
       <div className="mx-auto px-6 lg:px-10 grid lg:grid-cols-[320px_1fr] gap-24 pb-4">
         <aside className="lg:sticky lg:top-6 self-start bg-white border border-stone-200 rounded-2xl p-6">
-          <h2 className="text-base font-semibold text-stone-900 mb-4">
-            Ingredients
-          </h2>
           <Ingredients ingredients={ingredients} />
         </aside>
 
         <div>
-          <h2 className="text-base font-semibold text-stone-900 mb-4">
-            Instructions
-          </h2>
           <Instructions instructions={instructions} />
         </div>
       </div>
