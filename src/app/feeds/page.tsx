@@ -23,15 +23,6 @@ import {
   MapPin,
 } from "lucide-react";
 
-const categories = [
-  "Healthy Recipes",
-  "Appetizers",
-  "Main Dishes",
-  "Desserts",
-  "Beverages",
-  "Side Dishes",
-];
-
 const sideBarCategories = [
   { name: "Home", icon: Home },
   { name: "My Recipe", icon: Utensils },
@@ -72,41 +63,8 @@ const RecipeFeeds = () => {
         </aside>
 
         {/* Main */}
-        <main className="w-full flex flex-col pl-8">
-          <div className="flex items-center justify-between w-full">
-            <div className="flex flex-wrap gap-1 lg:gap-3 xl:gap-4 w-full">
-              {categories.map((category) => (
-                <Button
-                  key={category}
-                  className={`category px-3 py-1 hover:bg-orange-200 text-gray-800 bg-orange-100 rounded-xl ${
-                    selectedMenu === category
-                      ? "bg-slate-700 rounded-xl shadow-sm text-gray-900 shadow-slate-900"
-                      : ""
-                  }`}
-                  onClick={() => handleCategoryClick(category)}
-                >
-                  {category}
-                </Button>
-              ))}
-            </div>
-
-            <div className="relative flex">
-              <input
-                type="search"
-                className="border-gray-800 border-2 rounded-md p-2 text-sm w-64"
-                placeholder="Search Recipe Here"
-              />
-              <Image
-                height={24}
-                width={24}
-                src={Magnifier.src}
-                alt=""
-                className="absolute right-2 top-2 "
-              />
-            </div>
-          </div>
-
-          {selectedMenu === "Home" && <WeeklyRecipes recipeCategoryName="" />}
+        <main className="w-full flex flex-col pl-10">
+          {selectedMenu === "Home" && <WeeklyRecipes />}
           {selectedMenu === "My Recipe" && <MyRecipes />}
           {selectedMenu === "Followed" && <Followed />}
           {selectedMenu === "Favorite" && <Favorite />}
