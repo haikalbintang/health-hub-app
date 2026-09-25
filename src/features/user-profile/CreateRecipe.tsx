@@ -135,7 +135,7 @@ export default function CreateRecipe_vmhb() {
     <>
       <div className="p-6 flex flex-col">
         <div className="flex justify-between items-center">
-          <h1 className="text-2xl font-bold">Post Recipe Form</h1>
+          <h1 className="text-2xl font-bold">soon</h1>
           <h2 className="text-lg font-medium">
             step{" "}
             <span className="text-xl font-bold">{currentStepIndex + 1}</span> /{" "}

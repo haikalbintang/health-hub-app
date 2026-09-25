@@ -54,7 +54,7 @@ const MyProfilePage = () => {
           ))}
         </aside>
 
-        <div className="mx-auto">
+        <div className="w-full flex flex-col pl-10">
           {selectedMenu === "Profile" && <MyProfile />}
           {selectedMenu === "Notifications" && <MyRecipe />}
           {selectedMenu === "Saved Recipes" && <LikedRecipes />}

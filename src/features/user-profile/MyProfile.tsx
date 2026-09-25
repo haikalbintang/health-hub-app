@@ -102,7 +102,7 @@ const MyProfile: React.FC = () => {
   return (
     <div className="flex flex-col gap-6">
       {/* Profile hero */}
-      <div className="rounded-2xl bg-orange-200 px-8 py-8">
+      <div className="relative rounded-2xl bg-orange-200 px-8 py-8">
         <div className="flex flex-col items-center gap-6 sm:flex-row sm:justify-center">
           <div className="flex flex-col items-center gap-4">
             <img
@@ -140,6 +140,31 @@ const MyProfile: React.FC = () => {
               )}
             </div>
           </div>
+          {editing ? (
+            <div className="flex gap-3 absolute top-10 right-16">
+              <Button
+                variant="outline"
+                onClick={() => setEditing(false)}
+                className="rounded-full"
+              >
+                Cancel
+              </Button>
+              <Button
+                onClick={handleSave}
+                disabled={loading}
+                className="rounded-full bg-red-500 hover:bg-red-600"
+              >
+                {loading ? "Saving..." : "Save"}
+              </Button>
+            </div>
+          ) : (
+            <Button
+              onClick={() => setEditing(true)}
+              className="absolute top-10 right-16 rounded-full bg-red-500 px-6 hover:bg-red-600"
+            >
+              Edit
+            </Button>
+          )}
         </div>
 
         {/* Stats */}
@@ -193,14 +218,14 @@ const MyProfile: React.FC = () => {
       </div>
 
       {/* Bio */}
-      <div className="rounded-2xl text-center border border-orange-100 bg-white px-8 py-6 shadow-sm">
+      <div className="rounded-2xl text-center border border-stone-200 bg-white px-8 py-6">
         <h2 className="flex justify-center items-center gap-3 text-lg font-semibold text-gray-800">
           <span className="tracking-tight text-orange-300 hidden sm:inline">
-            &mdash;&mdash;&mdash;
+            &mdash;&mdash;&mdash;&mdash;&mdash;
           </span>
           Bio
           <span className="tracking-tight text-orange-300 hidden sm:inline">
-            &mdash;&mdash;&mdash;
+            &mdash;&mdash;&mdash;&mdash;&mdash;
           </span>
         </h2>
         {editing ? (
@@ -219,42 +244,17 @@ const MyProfile: React.FC = () => {
       </div>
 
       {/* Personal information */}
-      <div className="rounded-2xl border border-orange-100 bg-white px-8 py-6 shadow-sm">
-        <div className="flex flex-wrap items-center justify-between gap-4 border-b border-orange-100 pb-4">
+      <div className="rounded-2xl border border-stone-200 bg-white px-8 py-6">
+        <div className="flex flex-wrap items-center justify-center gap-4 border-b border-orange-100 pb-4">
           <h2 className="flex items-center gap-3 text-lg font-semibold text-gray-800">
             <span className="tracking-tight text-orange-300 hidden sm:inline">
-              &mdash;&mdash;&mdash;
+              &mdash;&mdash;&mdash;&mdash;&mdash;
             </span>
             Personal Information
             <span className="tracking-tight text-orange-300 hidden sm:inline">
-              &mdash;&mdash;&mdash;
+              &mdash;&mdash;&mdash;&mdash;&mdash;
             </span>
           </h2>
-          {editing ? (
-            <div className="flex gap-3">
-              <Button
-                variant="outline"
-                onClick={() => setEditing(false)}
-                className="rounded-full"
-              >
-                Cancel
-              </Button>
-              <Button
-                onClick={handleSave}
-                disabled={loading}
-                className="rounded-full bg-red-500 hover:bg-red-600"
-              >
-                {loading ? "Saving..." : "Save"}
-              </Button>
-            </div>
-          ) : (
-            <Button
-              onClick={() => setEditing(true)}
-              className="rounded-full bg-red-500 px-6 hover:bg-red-600"
-            >
-              Edit
-            </Button>
-          )}
         </div>
 
         {editError && (
@@ -263,7 +263,7 @@ const MyProfile: React.FC = () => {
           </p>
         )}
 
-        <div className="mt-6 grid grid-cols-1 gap-6 sm:grid-cols-2">
+        <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 px-6 py-2 gap-10">
           <div>
             <label className={`flex items-center gap-1.5 ${labelClass}`}>
               <Hash size={14} className="text-gray-400" />
@@ -350,17 +350,17 @@ const MyProfile: React.FC = () => {
       </div>
 
       {/* Social links */}
-      <div className="rounded-2xl border border-orange-100 bg-white px-8 py-6 shadow-sm">
-        <h2 className="flex items-center gap-3 text-lg font-semibold text-gray-800">
+      <div className="rounded-2xl border border-stone-200 bg-white px-8 py-6 mb-2">
+        <h2 className="flex items-center justify-center gap-3 text-lg font-semibold text-gray-800">
           <span className="tracking-tight text-orange-300 hidden sm:inline">
-            &mdash;&mdash;&mdash;
+            &mdash;&mdash;&mdash;&mdash;&mdash;
           </span>
           Social Links
           <span className="tracking-tight text-orange-300 hidden sm:inline">
-            &mdash;&mdash;&mdash;
+            &mdash;&mdash;&mdash;&mdash;&mdash;
           </span>
         </h2>
-        <div className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-3">
+        <div className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-3 px-4">
           {socials.map(({ label, value, Icon }) => (
             <div
               key={label}
