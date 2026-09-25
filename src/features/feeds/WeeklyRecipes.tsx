@@ -84,7 +84,7 @@ const Followed = () => {
 
         {isLoading && <p className="text-gray-500">Loading recipes...</p>}
 
-        <ul className="flex flex-wrap justify-around items-center my-3 gap-y-6">
+        <ul className="justify-around items-center my-3 grid grid-cols-5">
           {filteredRecipes.slice(0, showCount).map((recipe) => (
             <RecipeCard key={recipe.id} recipe={recipe} size="medium" />
           ))}
