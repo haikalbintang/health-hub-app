@@ -247,7 +247,7 @@ const Categories = () => {
       )}
 
       {selectedCategories.length ? (
-        <section className="mt-8">
+        <section className="mt-4">
           <h3 className="text-xl font-semibold text-gray-800">
             Recipes in{" "}
             {selectedCategories.map(({ category }) => category).join(", ")}

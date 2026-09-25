@@ -1,232 +1,174 @@
-// import React, { useEffect, useState } from "react";
-// import Modal from "../Modal";
-// import food1 from "@/components/images/sliderImagesv2/food1.jpg";
-// import time from "@/components/images/svg/clock-lines-svgrepo-com.svg";
-// import food2 from "@/components/images/slidersv3/1.png";
-// import { Button } from "../../ui/button";
-// import { RecipeData } from "../../RecipesFeeds/AllRecipes";
-// import Link from "next/link";
-// import { useRouter, usePathname, useSearchParams } from "next/navigation";
+"use client";
 
-// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-// import { faStar } from "@fortawesome/free-solid-svg-icons";
-// import { faThumbsUp, faComment } from "@fortawesome/free-regular-svg-icons";
+import { useEffect } from "react";
+import Link from "next/link";
+import Image from "next/image";
+import {
+  ChefHat,
+  Clock,
+  ExternalLink,
+  Heart,
+  Leaf,
+  ListOrdered,
+  MapPin,
+  MessageCircle,
+  Salad,
+  ShoppingBasket,
+  Star,
+  Tag,
+  Users,
+  Utensils,
+} from "lucide-react";
+import Modal from "@/features/navbar/Modal";
+import { getNutriBadge } from "@/utils/nutriScore";
+import { RecipeDetailType } from "@/types/type";
 
-// interface RecipeProps {
-//   author_id: number;
-//   image: string;
-//   title: string;
-//   description: string;
-//   ingredients: string[];
-//   tags: string[];
-//   instructions: string;
-//   cooktime: number;
-//   complexity: string;
-//   servings: string;
-//   time: string;
-//   category: string;
-//   nutriscore: number;
-// }
-// export interface ProfileData {
-//   username: string;
-//   email: string;
-//   first_name: string;
-//   last_name: string;
-//   location: string;
-//   phone: string;
-//   image: string;
-//   role: string;
-//   bio: string;
-// }
+function MetaChip({
+  icon: Icon,
+  label,
+}: {
+  icon: typeof Clock;
+  label: string;
+}) {
+  return (
+    <span className="flex items-center gap-1 rounded-full border border-slate-300 bg-white px-3 py-1.5 text-sm font-medium text-slate-700">
+      <Icon size={15} className="text-orange-500" />
+      {label}
+    </span>
+  );
+}
 
-// const RecipeModal = ({ recipe, showModal, setShowModal }: any) => {
-//   const router = useRouter();
-//   // console.log("ini route", router);
-//   const [profileData, setProfileData] = useState({} as ProfileData);
-//   // const [selectedRecipe, setSelectedRecipe] = useState<RecipeData | null>(null);
+export default function RecipeModal({
+  recipe,
+  onClose,
+}: {
+  recipe: RecipeDetailType;
+  onClose: () => void;
+}) {
+  useEffect(() => {
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") onClose();
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [onClose]);
 
-//   // useEffect(() => {
-//   //   fetchAuthorName(recipe.author_id);
-//   // }, [recipe]);
+  const nutri = getNutriBadge(recipe.nutriscore);
+  const rating = Number(recipe.rating);
+  const ratingLabel = Number.isNaN(rating) ? "—" : rating.toFixed(1);
+  const ingredientCount = recipe.ingredients_count;
+  const stepCount = (recipe.instruction ?? "")
+    .split(/\n+/)
+    .map((step) => step.trim())
+    .filter(Boolean).length;
 
-//   // const fetchAuthorName = async (authorId: number) => {
-//   //   try {
-//   //     const response = await fetch(`http://127.0.0.1:5000/users/${authorId}`);
-//   //     if (response.ok) {
-//   //       const authorData = await response.json();
-//   //       setProfileData(authorData);
-//   //       // console.log("123", authorData);
-//   //     } else {
-//   //       throw new Error("Failed to fetch author's username");
-//   //     }
-//   //   } catch (error) {
-//   //     console.error(error);
-//   //   }
-//   // };
+  const meta = [
+    { icon: ChefHat, label: recipe.complexity },
+    { icon: Clock, label: `${recipe.cooktime ?? 0} min` },
+    { icon: Users, label: `${recipe.servings ?? 0} servings` },
+    {
+      icon: ShoppingBasket,
+      label: `${ingredientCount} ${ingredientCount === 1 ? "ingredient" : "ingredients"}`,
+    },
+    {
+      icon: ListOrdered,
+      label: `${stepCount} ${stepCount === 1 ? "step" : "steps"}`,
+    },
+    { icon: Salad, label: recipe.budget },
+    { icon: Tag, label: recipe.type },
+    { icon: MapPin, label: recipe.origin },
+  ].filter((item) => Boolean(item.label));
 
-//   // useEffect(() => {
-//   //   const fetchRecipeDetail = async () => {
-//   //     try {
-//   //       const response = await fetch(
-//   //         `http://127.0.0.1:5000/recipes/details/${recipe.id}`
-//   //       );
-//   //       if (response.ok) {
-//   //         const recipe_data = await response.json();
-//   //         setSelectedRecipe(recipe_data);
-//   //         console.log("test id", recipe_data);
-//   //       } else {
-//   //         throw new Error("Failed to fetch author's username");
-//   //       }
-//   //     } catch (error) {
-//   //       console.error(error);
-//   //     }
-//   //     fetchRecipeDetail();
-//   //   };
-//   // });
+  return (
+    <Modal setShowModal={() => onClose()}>
+      <div className="flex max-h-[90vh] w-[min(90vw,52rem)] flex-col overflow-hidden rounded-xl md:flex-row">
+        {/* Image */}
+        <div className="relative aspect-square w-full shrink-0 bg-gray-200 md:w-[40%] md:aspect-auto md:min-h-[28rem]">
+          {recipe.attachment ? (
+            <Image
+              fill
+              src={recipe.attachment}
+              alt={recipe.title}
+              sizes="(min-width: 768px) 40vw, 90vw"
+              className="object-cover"
+            />
+          ) : (
+            <div className="flex h-full w-full items-center justify-center">
+              <Utensils size={48} className="text-gray-400" />
+            </div>
+          )}
 
-//   const handleRedirectToRecipees = (id: number) => {
-//     // setSearchParamsData({ id: id.toString() });
-//   };
-//   const closeModal = () => {
-//     setShowModal(false);
-//   };
+          {recipe.is_chef_recipe && (
+            <span className="absolute left-3 top-3 z-10 flex items-center gap-1 rounded-full bg-amber-400 px-2 py-0.5 text-[10px] font-semibold text-slate-900 shadow">
+              <ChefHat size={12} strokeWidth={2.5} />
+              Chef&apos;s pick
+            </span>
+          )}
+        </div>
 
-//   return (
-//     <div>
-//       <Modal setShowModal={closeModal}>
-//         {recipe && (
-//           <div className="flex h-full w-full bg-emerald-50 rounded-xl">
-//             <div className="flex flex-col justify-center items-center w-96 px-5 py-8 gap-6">
-//               <div className="px-6 py-3 bg-orange-700 flex justify-center items-center rounded-3xl">
-//                 <h1 className="text-3xl font-bold bg-clip-text text-orange-100 text-center flex justify-center items-center">
-//                   {recipe.title}
-//                 </h1>
-//               </div>
-//               <div className="flex justify-center items-center gap-2 text-md">
-//                 <div>
-//                   <h2 className="text-lg font-semibold text-slate-700">
-//                     Recipe by:
-//                   </h2>
-//                 </div>
-//                 <div className="flex px-3 py-1 rounded-2xl gap-1 bg-orange-400">
-//                   <h2 className="text-lg font-semibold text-orange-100">
-//                     {profileData.first_name} {profileData.last_name}Iman Satya
-//                   </h2>
-//                 </div>
-//               </div>
-//               <div className="flex w-full flex-col py-3">
-//                 <div className="px-5">
-//                   <h3>$$$</h3>
-//                 </div>
-//                 <div className="px-5 py-4 flex w-full justify-between items-center">
-//                   <div className="flex flex-col gap-4">
-//                     <div className="flex gap-2 justify-start items-center">
-//                       <img src={time.src} alt="" className="h-8 w-8" />
-//                       <h3 className="px-2 bg-sky-700 text-slate-100 rounded-xl">
-//                         {recipe.complexity}
-//                       </h3>
-//                     </div>
-//                     <div className="flex gap-2 justify-start items-center">
-//                       <img src={time.src} alt="" className="h-8 w-8" />
-//                       <h3 className="text-slate-800">
-//                         {recipe.cooktime}20 minutes
-//                       </h3>
-//                     </div>
-//                   </div>
-//                   <div className="flex flex-col gap-4">
-//                     <div className="flex gap-2 justify-start items-center">
-//                       <img src={time.src} alt="" className="h-8 w-8" />
-//                       <h3 className="p-1 bg-slate-800 text-slate-100 font-semibold rounded-md">
-//                         {recipe.nutriscore}
-//                       </h3>
-//                     </div>
-//                     <div className="flex gap-2 justify-start items-center">
-//                       <img src={time.src} alt="" className="h-8 w-8" />
-//                       <h3 className="text-slate-800">
-//                         {recipe.servings}4 servings
-//                       </h3>
-//                     </div>
-//                   </div>
-//                 </div>
-//                 <div className="flex px-5 justify-between">
-//                   <div className="flex gap-2 justify-start items-center">
-//                     <img src={time.src} alt="" className="h-8 w-8" />
-//                     <h3 className="text-slate-800">Category</h3>
-//                   </div>
-//                   <div className="flex gap-2 justify-start items-center">
-//                     <img src={time.src} alt="" className="h-8 w-8" />
-//                     <h3 className="text-slate-800">Type</h3>
-//                   </div>
-//                   <div className="flex gap-2 justify-start items-center">
-//                     <img src={time.src} alt="" className="h-8 w-8" />
-//                     <h3 className="text-slate-800">Origin</h3>
-//                   </div>
-//                 </div>
-//               </div>
-//               <div className="flex flex-col justify-center items-center px-3">
-//                 <h2 className="text-lg font-semibold text-slate-700 flex justify-center items-center">
-//                   Description:
-//                 </h2>
-//                 <p className="text-sm font-medium text-slate-800">
-//                   {recipe.description}
-//                 </p>
-//               </div>
-//               <div
-//                 className="flex justify-center items-end h-1/5 "
-//                 // onClick={handleRecipeReadMore}
-//               >
-//                 <Button
-//                   onClick={() =>
-//                     router.push("/DedicatedRecipeDetail/" + recipe.id)
-//                   }
-//                   className="px-6 py-6 rounded-3xl text-xl bg-emerald-700 text-emerald-100 hover:bg-emerald-800 hover:text-emerald-50 shadow-md shadow-slate-900"
-//                 >
-//                   Cook Now
-//                 </Button>
-//               </div>
-//             </div>
-//             <div className="relative w-96 flex justify-center items-center overflow-y-hidden">
-//               <img
-//                 src={recipe.attachment}
-//                 alt=""
-//                 className="rounded-tr-xl rounded-br-xl object-cover object-center h-full w-full"
-//               />
-//               <div className="w-full justify-around absolute left-0 -bottom-10 hover:bottom-6 hover:duration-500 hover:ease-in-out flex flex-col gap-7">
-//                 <div className="w-full flex justify-around items-center">
-//                   <Button className="text-yellow-500 text-base gap-1">
-//                     <FontAwesomeIcon
-//                       icon={faStar}
-//                       style={{ color: "#FFD43B" }}
-//                     />
-//                     <span>{recipe.rating}</span>
-//                   </Button>
-//                   <Button className="text-green-500 text-base gap-1">
-//                     <FontAwesomeIcon
-//                       icon={faThumbsUp}
-//                       style={{ color: "#2adf57" }}
-//                     />
-//                     <span>{recipe.like_count}</span>
-//                   </Button>
-//                   <Button className="text-blue-500 text-base gap-1">
-//                     <FontAwesomeIcon
-//                       icon={faComment}
-//                       style={{ color: "#3b82f6" }}
-//                     />
-//                     <span>4</span>
-//                   </Button>
-//                 </div>
-//                 <div className="w-full flex justify-around items-center">
-//                   <Button className="text-yellow-500 text-base">Rate</Button>
-//                   <Button className="text-green-500 text-base">Like</Button>
-//                   <Button className="text-blue-500 text-base">Comment</Button>
-//                 </div>
-//               </div>
-//             </div>
-//           </div>
-//         )}
-//       </Modal>
-//     </div>
-//   );
-// };
+        {/* Content */}
+        <div className="flex w-full flex-col gap-4 overflow-y-auto p-6 md:w-[60%] md:pr-12">
+          <h1 className="text-3xl font-bold leading-tight text-slate-900">
+            <span>{recipe.title} </span>
+            <span
+              title={`Nutri Score ${recipe.nutriscore}`}
+              className={`${nutri.color} ml-2 mb-2 inline-flex items-center gap-1 rounded-full px-3 py-0.5 align-middle text-lg font-bold text-white`}
+            >
+              <Leaf size={18} strokeWidth={2.5} />
+              {nutri.letter}
+            </span>
+          </h1>
 
-// export default RecipeModal;
+          {/* Author + stats */}
+          <div className="flex items-center justify-between gap-3">
+            <span className="text-base font-semibold text-slate-600">
+              by <span className="text-orange-500">{recipe.author_name}</span>
+            </span>
+            <span className="flex items-center gap-3 text-base font-semibold text-slate-700">
+              <span className="flex items-center gap-1.5">
+                <Star size={18} className="fill-amber-400 text-amber-400" />
+                {ratingLabel}
+              </span>
+              <span className="flex items-center gap-1.5">
+                <Heart size={18} className="fill-rose-500 text-rose-500" />
+                {recipe.like_count ?? 0}
+              </span>
+              <span className="flex items-center gap-1.5">
+                <MessageCircle
+                  size={18}
+                  className="fill-blue-500 text-blue-500"
+                />
+                {recipe.comments?.length ?? 0}
+              </span>
+            </span>
+          </div>
+
+          {/* Meta chips */}
+          <div className="flex flex-wrap items-center gap-2">
+            {meta.map(({ icon, label }) => (
+              <MetaChip key={label} icon={icon} label={label} />
+            ))}
+          </div>
+
+          {/* Description */}
+          <p className="line-clamp-4 text-base leading-relaxed text-gray-800">
+            {recipe.description}
+          </p>
+
+          {/* Footer actions */}
+          <div className="mt-auto flex items-center justify-end border-t border-slate-200 pt-4">
+            <Link
+              href={`/recipe-detail/${recipe.id}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 rounded-full bg-red-600 px-6 py-2.5 text-base font-semibold text-white transition-colors hover:bg-red-700"
+            >
+              See Recipe Detail
+              <ExternalLink size={17} />
+            </Link>
+          </div>
+        </div>
+      </div>
+    </Modal>
+  );
+}

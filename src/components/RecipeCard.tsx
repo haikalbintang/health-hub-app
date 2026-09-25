@@ -44,7 +44,7 @@ export default function RecipeCard({
     <>
       <li
         key={id}
-        className={`group/card relative ${sizeChart[size].width} overflow-hidden rounded-xl bg-orange-100 text-left shadow-md transition-all duration-300 ease-in sm:hover:-translate-y-1 sm:hover:shadow-xl`}
+        className={`group/card relative ${sizeChart[size].width} overflow-hidden rounded-xl bg-orange-100 text-left shadow-md transition-all duration-200 ease-in sm:hover:shadow-xl`}
       >
         <button
           type="button"
@@ -107,14 +107,14 @@ export default function RecipeCard({
         {/* Fixed badges */}
         <span
           title={`Nutri Score ${nutriscore}`}
-          className={`${nutri.color} absolute left-2 top-2 z-20 flex items-center gap-1 rounded-full px-2 py-1 text-xs font-bold text-white shadow ring-1 ring-black/20`}
+          className={`${nutri.color} absolute left-2 top-2 flex items-center gap-1 rounded-full px-2 py-1 text-xs font-bold text-white shadow ring-1 ring-black/20`}
         >
           <Leaf size={12} strokeWidth={2.5} />
           {nutri.letter}
         </span>
 
         {recipe.is_chef_recipe && (
-          <span className="absolute right-2 top-2.5 z-20 flex items-center gap-1 rounded-full bg-amber-400 px-2 py-0.5 text-[10px] font-semibold text-slate-900 shadow">
+          <span className="absolute right-2 top-2.5 flex items-center gap-1 rounded-full bg-amber-400 px-2 py-0.5 text-[10px] font-semibold text-slate-900 shadow">
             <ChefHat size={12} strokeWidth={2.5} />
             Chef&apos;s pick
           </span>

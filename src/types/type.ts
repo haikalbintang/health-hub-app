@@ -74,4 +74,5 @@ export interface RecipeDetailType {
   is_chef_recipe: boolean;
   created_at: string;
   updated_at: string;
+  ingredients_count: number;
 }
