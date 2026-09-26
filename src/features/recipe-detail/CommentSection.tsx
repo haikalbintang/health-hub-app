@@ -69,7 +69,7 @@ function CommentItem({
             <p className="text-xs text-slate-500 shrink-0">
               {formatDate(comment.created_at)}
             </p>
-            <DropdownMenu>
+            <DropdownMenu modal={false}>
               <DropdownMenuTrigger asChild>
                 <button
                   aria-label="Comment options"
@@ -78,7 +78,10 @@ function CommentItem({
                   <MoreVertical size={16} />
                 </button>
               </DropdownMenuTrigger>
-              <DropdownMenuContent align="end">
+              <DropdownMenuContent
+                align="end"
+                updatePositionStrategy="optimized"
+              >
                 <DropdownMenuItem onSelect={startEditing}>
                   <Pencil size={14} className="mr-2" />
                   Edit
