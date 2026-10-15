@@ -78,7 +78,7 @@ export default function Card({
   // };
 
   return (
-    <li
+    <div
       key={id}
       className={`group/card relative ${sizeChart[size].height} ${sizeChart[size].width} overflow-hidden rounded-xl text-center transition-all duration-[350ms] ease-in ${
         isLeaving ? "-translate-y-8 scale-95 opacity-0" : "sm:hover:scale-105"
@@ -163,6 +163,6 @@ export default function Card({
           Chef&apos;s pick
         </span>
       )}
-    </li>
+    </div>
   );
 }

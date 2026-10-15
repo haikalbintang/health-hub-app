@@ -126,7 +126,7 @@ export default function SliderImage2() {
               style={{ transform: `translate3d(${-pageStart * STEP}px, 0, 0)` }}
             >
               {cards.map((card, i) => (
-                <div
+                <li
                   key={card.id}
                   className={`shrink-0 ${
                     i === pageStart
@@ -137,7 +137,7 @@ export default function SliderImage2() {
                   }`}
                 >
                   <Card data={card} />
-                </div>
+                </li>
               ))}
             </ul>
           </div>
