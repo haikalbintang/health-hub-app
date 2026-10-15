@@ -172,22 +172,22 @@ export const discoverContentMenus = [
   },
   {
     id: 2,
-    title: "Fresh and Natural",
+    title: "Spain's Best",
     logo: logo2.src,
   },
   {
     id: 3,
-    title: "Fresh and Natural",
+    title: "Vegetables & Fruits",
     logo: logo3.src,
   },
   {
     id: 4,
-    title: "Fresh and Natural",
+    title: "Chef's Choice",
     logo: logo4.src,
   },
   {
     id: 5,
-    title: "Fresh and Natural",
+    title: "Local Favorites",
     logo: logo5.src,
   },
 ];
