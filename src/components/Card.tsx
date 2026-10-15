@@ -120,11 +120,11 @@ export default function Card({
         )} */}
 
         {/* Title */}
-        <h3
+        <div
           className={`absolute inset-x-3 bottom-14 z-10 text-center text-lg font-bold leading-tight text-white`}
         >
           {title}
-        </h3>
+        </div>
 
         {/* Footer badges */}
         <div
